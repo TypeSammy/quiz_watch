@@ -1,1 +1,3 @@
-# quiz_watch
+# Quiz Watch
+
+A hybrid quiz/flashcard program.
