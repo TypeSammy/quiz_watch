@@ -14,5 +14,4 @@ app.get('/', (req, res)=> {
     res.json(testing123);
 });
 
-// testcode2.0
-// hi3
+// Stop doing this
