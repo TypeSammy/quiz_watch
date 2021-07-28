@@ -13,5 +13,3 @@ app.get('/', (req, res)=> {
     const testing123 = {"testing":"Mike test, 1... 2?"}
     res.json(testing123);
 });
-
-// Stop doing this

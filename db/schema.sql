@@ -7,7 +7,7 @@ username TEXT,
 password_digest TEXT
 );
 
-CREATE TABLE fashcards (
+CREATE TABLE flashcards (
 id SERIAL PRIMARY KEY,
 user_id INT,
 question TEXT,
@@ -21,13 +21,7 @@ CREATE TABLE quiz_reminders (
 id SERIAL PRIMARY KEY,
 user_id INT,
 flashcard_id INT,
-hour INT,
-minute INT,
-seconds INT,
-day TEXT,
-date INT,
-month TEXT,
-year INT
+reminder TIMESTAMP
 );
 
 -- NOTES:
