@@ -7,7 +7,7 @@ username TEXT,
 password_digest TEXT
 );
 
-CREATE TABLE quiz_reminders (
+CREATE TABLE fashcards (
 id SERIAL PRIMARY KEY,
 user_id INT,
 question TEXT,
@@ -21,9 +21,15 @@ CREATE TABLE quiz_reminders (
 id SERIAL PRIMARY KEY,
 user_id INT,
 flashcard_id INT,
-one_day BOOLEAN,
-1_week BOOLEAN,
-2_weeks BOOLEAN,
-3_weeks BOOLEAN,
-4_weeks BOOLEAN
+hour INT,
+minute INT,
+seconds INT,
+day TEXT,
+date INT,
+month TEXT,
+year INT
 );
+
+-- NOTES:
+-- Remove table data without dropping the table, better than DELETE as it resets the table auto-increment value:
+TRUNCATE TABLE table_name;
