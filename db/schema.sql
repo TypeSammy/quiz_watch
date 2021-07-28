@@ -27,3 +27,4 @@ reminder TIMESTAMP
 -- NOTES:
 -- Remove table data without dropping the table, better than DELETE as it resets the table auto-increment value:
 TRUNCATE TABLE table_name;
+
