@@ -86,8 +86,14 @@ h2 {
 
 .third-strip img {
   width: 16em;
+  float: right;
+  margin-right: 8em;
 }
 
 .third-strip h2 {
   text-align: left;
+}
+
+.third-strip p {
+  width: 90%;
 }
