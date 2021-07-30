@@ -1,0 +1,93 @@
+.main-strip {
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  grid-template-rows: 450px;
+  background-color: rgb(207 222 234);
+  height: 456px;
+  padding: 0;
+  align-items: center;
+}
+
+.main-copy {
+  padding-left: 15%;
+}
+
+.main-copy h1 {
+  font-size: 5em;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.1em;
+}
+
+.main-copy p {
+  width: 70%;
+}
+
+.main-copy button {
+  border: none;
+  background: #F78066;
+  color: rgb(255 255 255);
+  padding: 1em;
+  width: 33%;
+  border-radius: 4px;
+}
+
+.main-copy button:hover {
+  background: #eb755a;
+}
+
+.main-img img {
+  padding-top: 30px;
+  height: 431px;
+  float: right;
+  width: 100%;
+}
+
+.second-strip {
+  text-align: center;
+  margin: 65px 0;
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 1.8em;
+}
+
+.second-strip ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  gap: 3em;
+}
+
+.second-strip div {
+  width: 10%;
+}
+
+.material-icons.check_circle {
+  font-size: 2.5em;
+  color: #F78066;
+}
+
+.second-strip li {
+  padding-top: 15px;
+}
+
+.third-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 19%;
+  margin-bottom: 2em;
+}
+
+.third-strip img {
+  width: 16em;
+}
+
+.third-strip h2 {
+  text-align: left;
+}
