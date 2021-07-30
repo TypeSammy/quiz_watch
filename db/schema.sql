@@ -13,14 +13,6 @@ user_id INT,
 question TEXT,
 hint TEXT,
 answer TEXT,
-answered_correctly INT,
-answered_incorrectly INT
-);
-
-CREATE TABLE quiz_reminders (
-id SERIAL PRIMARY KEY,
-user_id INT,
-flashcard_id INT,
 reminder TIMESTAMP
 );
 
