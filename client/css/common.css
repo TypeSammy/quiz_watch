@@ -13,3 +13,37 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+
+button {
+  border: none;
+  background: #F78066;
+  color: rgb(255 255 255);
+  padding: 1em;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #eb755a;
+}
+
+fieldset {
+  border: none;
+  padding: 0.6em 0;
+}
+input {
+  background-color: #E4EBEF;
+  border: none;
+  border-radius: 4px;
+  height: 4em;
+  width: 70%;
+  padding: 0 17px;
+  color: rgb(46 134 196);
+  box-sizing:border-box
+}
+::placeholder {
+  color: #2E86C4;
+}
+
+.hide {
+  display: none
+}

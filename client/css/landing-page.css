@@ -24,16 +24,7 @@
 }
 
 .main-copy button {
-  border: none;
-  background: #F78066;
-  color: rgb(255 255 255);
-  padding: 1em;
   width: 33%;
-  border-radius: 4px;
-}
-
-.main-copy button:hover {
-  background: #eb755a;
 }
 
 .main-img img {
