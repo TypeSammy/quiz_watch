@@ -8,7 +8,6 @@ const sessionsController = require('./controllers/session_controller/session_con
 const app = express()
 
 // require middlewares:
-
 const sess = {
     secret : process.env.SESSION_SECRET,
     cookie : {}
@@ -30,6 +29,6 @@ app.use('/api/session', sessionsController)
 
 const port = process.env.PORT || 3000;
 
-app.listen( () => {
+app.listen(port , () => {
     console.log(`*** Listening on port ${port} ***`)
 })
