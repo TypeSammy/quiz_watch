@@ -19,3 +19,7 @@
   overflow: hidden;
   height: 40px;
 }
+
+.edit-container {
+  display: flex;
+}
