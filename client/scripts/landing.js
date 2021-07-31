@@ -38,4 +38,4 @@ function renderLandingPage() {
     </section>
   `
 }
-renderLandingPage()
+// renderLandingPage()

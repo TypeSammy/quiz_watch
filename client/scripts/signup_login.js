@@ -1,3 +1,6 @@
+const login = document.querySelector("#login")
+const signup = document.querySelector("#signup")
+
 function renderSignup() {
   const signupBox = document.querySelector("#signup")
   signupBox.classList.remove("hide")
@@ -16,18 +19,20 @@ function renderSignup() {
         </fieldset>
         <button>Sign up</button>
       </form>
-      <span class="material-icons signup" onClick="hide('signup')">close</span>
+      <span class="material-icons signup" onClick="render('signup')">close</span>
     </div>
   `
 }
+renderSignup()
+signup.classList.toggle("hide")
 
 function renderLogin() {
   const signupBox = document.querySelector("#login")
   signupBox.classList.remove("hide")
   signupBox.innerHTML = `
-    <div class="signup-container">
+    <div class="login-container">
       <h2>Login</h2>
-      <form id="sign-up-form" action="/" method="POST">
+      <form id="login-up-form" action="/" method="POST">
         <fieldset>
           <input type="text" name="name" placeholder="Username">
         </fieldset>
@@ -36,15 +41,17 @@ function renderLogin() {
         </fieldset>
         <button>Login</button>
       </form>
-      <span class="material-icons login" onClick="hide('login')">close</span>
+      <span class="material-icons login" onClick="render('login')">close</span>
     </div>
   `
 }
+renderLogin()
+login.classList.toggle("hide")
 
-function hide(click) {
-  if (click === "signup") {
-    document.querySelector("#signup").classList.add("hide")
-  } else if (click === "login") {
-    document.querySelector("#login").classList.add("hide")
+function render(component) {
+  if (component === "signup") {
+    signup.classList.toggle("hide")
+  } else if (component === "login") {
+    login.classList.toggle("hide")
   }
 }
