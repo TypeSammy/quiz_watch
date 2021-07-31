@@ -4,5 +4,3 @@ const db = new pg.Pool({
 })
 
 module.exports = db
-
-// 
