@@ -1,10 +1,11 @@
-const express = require('express');
-const User = require('../');
-const validateUser = require('../middlewares/users/validate_user');
+const express = require("express")
+const router = express.Router()
+const User = require("../../model/user_model/user_model");
+const validateUser = require("../../middlewares/validation/validate_user");
 
-const router = express.Router();
 
-router.post('/', validateUser, (req, res) => {
+
+router.post('/', (req, res) => {
   const name = req.body.name
   const email = req.body.email
   const password = req.body.password
