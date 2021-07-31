@@ -2,35 +2,40 @@ if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
 
-const session = require('express-session')
+// require and set express
 const express = require('express')
-const sessionsController = require('./controllers/session_controller/session_controller')
+const session = require('express-session')
 const app = express()
 
+// Controllers
+const sessionsController = require('./controllers/session_controller/session_controller')
+const usersController = require('./controllers/user_controller/users_controller')
+
 // require middlewares:
-const sess = {
+const sessionConfig = {
     secret : process.env.SESSION_SECRET,
     cookie : {}
 }
 
 if(process.env.NODE_ENV === 'production'){
-    sess.cookie.secure = true;
+    sessionConfig.cookie.secure = true;
     // app.set('trust proxy', 1); // not sure if strictly required
 }
 
+// Logger for Terminal
 const logger = require("./middlewares/logger.js")
-
-app.use(session(sess));
 app.use(logger)
-app.use(express.static("client"))
+
 app.use(express.json())
+app.use(express.static("client"))
+app.use(session(sessionConfig));
 
-app.use('/api/session', sessionsController)
+app.use('/api/users', usersController)
+app.use('/api/sessions', sessionsController)
 
+// For heroku deployment
 const port = process.env.PORT || 3000;
 
 app.listen(port , () => {
     console.log(`*** Listening on port ${port} ***`)
 })
-
-//
