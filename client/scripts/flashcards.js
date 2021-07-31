@@ -32,7 +32,7 @@ function reminderUpdate(difficulty){
   // current pathway set to /api/flashcard -> update
   // not sure how to use sessions for user_id
 
-    .post('/api/flashcard',state.currentUser, updatedTime)
+    .post('/api/flashcards',state.currentUser, updatedTime)
     .then(() => {
       // update window with where the flash card is being displayed
       window.location.reload()
