@@ -12,18 +12,18 @@
   justify-content: space-around;
   list-style-type: none;
   padding: 0;
-  gap: 0.5em;
+  gap: 0.8em;
 }
 
 .header-nav nav ul div {
   display: flex;
   justify-content: space-around;
-  font-size: 0.85em;
+  font-size: 13px;
   align-items: center;
 }
 
 .header-nav nav li {
-  padding: 0 0.3em;
+  padding: 0 0.1em;
   font-weight: 200;
   color: white;
   cursor: pointer;

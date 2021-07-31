@@ -1,4 +1,4 @@
-.signup-container {
+.signup-container, .login-container {
   padding: 4em 1em 1em 1em;
   width: 500px;
   background-color: white;
@@ -7,18 +7,19 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 0px 500px rgba(0, 0, 0, 0.386);
+  border-radius: 4px;
 }
 
-.signup-container input {
+.signup-container input, .login-container input {
   width: 300px;
 }
 
-.signup-container button {
+.signup-container button, .login-container  button {
   width: 300px;
   margin-top: 1em;
 }
 
-.signup-container h2 {
+.signup-container h2, .login-container h2 {
   font-size: 3em;
   margin-bottom: 10px;
 }
@@ -30,7 +31,7 @@
   transform: translate(-50%, -50%);
 }
 
-.signup-container .material-icons {
+.signup-container .material-icons, .login-container .material-icons {
   margin-left: auto;
   padding-top: 1.5em;
   cursor: pointer;
