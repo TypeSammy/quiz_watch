@@ -1,10 +1,12 @@
+const landingPage = document.querySelector("#landing-page")
+
 function renderLandingPage() {
   document.querySelector("#landing-page").innerHTML = `
     <section id="main-strip" class="main-strip">
       <div class="main-copy">
         <h1>Lorem Ipsum Dolor Sit</h1>
         <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-        <button class="get-started-btn">Get Started</button>
+        <button class="get-started-btn" onClick="Flashcard.render('answer')">Get Started</button>
       </div>
       <div class="main-img">
         <img src="./assets/character 16 crop.svg" alt="two people studying">
@@ -38,4 +40,4 @@ function renderLandingPage() {
     </section>
   `
 }
-// renderLandingPage()
+renderLandingPage()

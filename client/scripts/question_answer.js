@@ -30,6 +30,7 @@ const Flashcard = (() => {
   }
   question()
   answer()
+  questionDisplay.classList.toggle("hide")
   answerDisplay.classList.toggle("hide")
 
   function render(component) {
