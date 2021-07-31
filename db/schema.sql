@@ -4,6 +4,7 @@ CREATE DATABASE quiz_watch;
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 username TEXT,
+email TEXT,
 password_digest TEXT
 );
 
@@ -31,6 +32,7 @@ VALUES (2, 'In JS how do you remove whitespace', 'for example shrek 1 ', 'consol
 INSERT INTO flashcards (user_id, question, hint, answer, answered_correctly, answered_incorrectly, reminder, category)
 VALUES (1, 'In JS how do you remove whitespace', 'for example shrek 1 ', 'console.log("shrek 1".trim)', 0, 0, timestamp '2030-09-28 23:00', 'Javascript' );
 
+INSERT INTO users(username, email, password_digest) VALUES ('Bug Test', 'bug@test.com', 'BugTestPassword');
 
 -- SELET THE flashcards due for all users
 SELECT * FROM flashcards where reminder < now()
