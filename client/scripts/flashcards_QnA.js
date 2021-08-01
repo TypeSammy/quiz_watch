@@ -1,6 +1,7 @@
 const categoryHeader = document.querySelector("#category-container")
 const answerDisplay = document.querySelector("#answer-display")
 const questionDisplay = document.querySelector("#question-display")
+const createFlashcard = document.querySelector("#create-card")
 
 const FlashcardsQA = (() => {
   function renderCategoryHeader() {
@@ -11,7 +12,7 @@ const FlashcardsQA = (() => {
           <li class="material-icons edit" onClick="FlashcardsQA.render('editCat')">edit</li>
           <li class="edit edit-txt" onClick="FlashcardsQA.render('editCat')">Edit deck</li>
           <li class="material-icons edit" onClick="FlashcardsQA.render('addCard')">add_circle</li>
-          <li class="edit edit-txt" onClick="FlashcardsQA.render('addCard')"">Add card</li>
+          <li class="edit edit-txt" onClick="FlashcardsQA.render('createCard')"">Add card</li>
         </div>
         <li>1/10</li>
       </ul>
@@ -43,12 +44,36 @@ const FlashcardsQA = (() => {
       </div>
     `
   }
+  function create() {
+    document.querySelector("#create-card").innerHTML = `
+        <div class="create-flashcard-container">
+          <form id="create-flashcard-form" action="/" method="POST">
+            <fieldset>
+              <label for="question">Question:</label><br>
+              <textarea name="question" cols="20" rows="5"></textarea>
+            </fieldset>
+            <fieldset>
+              <label for="question">Hint:</label><br>
+              <textarea name="hint" cols="20" rows="5"></textarea>
+            </fieldset>
+            <fieldset>
+              <label for="question">Answer:</label><br>
+              <textarea name="answer" cols="20" rows="5"></textarea>
+            </fieldset>
+            <button>Add</button>
+          </form>
+        </div>
+    `
+  }
+
   renderCategoryHeader() 
   question()
   answer()
+  create()
   categoryHeader.classList.toggle("hide")
   questionDisplay.classList.toggle("hide")
   answerDisplay.classList.toggle("hide")
+  createFlashcard.classList.toggle("hide")
 
   function render(component) {
     if (component === "editCat") {
@@ -58,6 +83,12 @@ const FlashcardsQA = (() => {
       } else if (questionDisplay.classList.contains("hide")) {
         questionDisplay.classList.toggle("hide")
       }
+    } else if (component === "createCard") {
+      createFlashcard.classList.toggle("hide")
+    } if (answerDisplay.classList.contains("hide")) {
+      answerDisplay.classList.toggle("hide")
+    } else if (questionDisplay.classList.contains("hide")) {
+      questionDisplay.classList.toggle("hide")
     }
     // if statement for time buttons
     if (component === "answer") {
@@ -76,6 +107,3 @@ const FlashcardsQA = (() => {
   }
 
 })()
-
-// TO DO:
-// - NEED FUNCTION TO RENDER HINT

@@ -17,8 +17,9 @@ const EditFlashcard = (() => {
             <label for="question">Answer:</label><br>
             <textarea name="answer" cols="20" rows="5">Answer information display here</textarea>
           </fieldset>
-          <button onClick="updateFlashcard("question, hint, answer")>Save</button>
-        </form>
+          <button onClick="updateFlashcard('question, hint, answer')">Save</button>
+          <button class="delete" onClick="deleteFlashcard('id')">Delete</button>
+          </form>
       </div>
     `
   }

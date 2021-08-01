@@ -34,7 +34,7 @@
   border-bottom: 1px solid #2E86C4;
 }
 
-.question-display-container, .answer-display-container, .edit-flashcard-container {
+.question-display-container, .answer-display-container, .edit-flashcard-container, .create-flashcard-container {
   width: 45%;
   height: 35vh;
   background-color: white;
@@ -101,12 +101,16 @@ label {
   color: #F78066;
 }
 
-.edit-flashcard-container {
+.edit-flashcard-container, .create-flashcard-container {
   height: 50vh;
   padding: 3em 6em;
 }
 
-.edit-flashcard-container textarea {
+.edit-flashcard-container {
+  height: 60vh;
+}
+
+.edit-flashcard-container textarea, .create-flashcard-container textarea {
   font-family: 'Lato', sans-serif;
   background-color: #E4EBEF;
   color: #2E86C4;
@@ -120,7 +124,15 @@ label {
   border-radius: 4px;
 }
 
-.edit-flashcard-container button {
+.edit-flashcard-container button, .create-flashcard-container button {
   width: 100%;
   margin: 10px 0;
+}
+
+.edit-flashcard-container button.delete {
+  background-color: rgb(192 192 192);
+}
+
+button.delete:hover {
+  background: rgb(118 118 118);
 }

@@ -9,6 +9,7 @@ const Flashcards = (() => {
           <div class="edit-container">
             <span class="material-icons" onClick="EditFlashcard.render('edit')">edit</span><div class="edit" onClick="EditFlashcard.render('edit')">Edit</div>
           </div>
+          
         </div>
 
         <div class="question-container">
