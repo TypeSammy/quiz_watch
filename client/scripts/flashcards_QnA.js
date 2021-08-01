@@ -75,43 +75,5 @@ const FlashcardsQA = (() => {
 
 })()
 
-// const Category = (() => {
-
-
-//   function render(component) {
-//     if (component === "edit") {
-//       allFlashcards.classList.toggle("hide")
-//       if (answerDisplay.classList.contains("hide") === false) {
-//         answerDisplay.classList.toggle("hide")
-//       } else if (questionDisplay.classList.contains("hide") === false) {
-//         questionDisplay.classList.toggle("hide")
-//       }
-//     }
-//   }
-//   return {
-//     render: render
-//   }
-// })()
-
-// const Flashcard = (() => {
-
-//   // questionDisplay.classList.toggle("hide")
-//   // answerDisplay.classList.toggle("hide")
-
-//   function render(component) {
-
-//     if (component === "answer") {
-//       questionDisplay.classList.toggle("hide")
-//       answerDisplay.classList.toggle("hide")
-//     } else if (component === "easy" || "medium" || "hard") {
-//       questionDisplay.classList.toggle("hide")
-//       answerDisplay.classList.toggle("hide")
-//       const time = component
-//       // timeFunction(time) => call on timelord's time function
-//     }
-//   }
-
-//   return {
-//     render: render
-//   }
-// })()
+// TO DO:
+// - NEED FUNCTION TO RENDER HINT

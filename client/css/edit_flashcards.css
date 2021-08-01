@@ -1,5 +1,4 @@
 .all-questions-display-container {
-  padding: 6em;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -13,6 +12,7 @@
   box-shadow: 0px 0px 1em rgb(0 0 0 / 10%);
   border-radius: 4px;
   padding: 1.4em;
+  background: rgb(255 255 255);
 }
 
 .question-preview {
@@ -24,7 +24,6 @@
   display: flex;
   align-items: center;
   margin-top: 1em;
-  background-color: white;
 }
 
 span.material-icons {
