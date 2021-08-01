@@ -10,9 +10,9 @@ function isNull(params) {
 }
 
 function validateUser(req, res, next) {
-  const {name, email, password} = req.body
+  const {username, email, password} = req.body
 
-  if (isNull(name)) { 
+  if (isNull(username)) { 
     throw validationError("Name is required")
   } else if (isNull(email)) {
     throw validationError("Email is required")
