@@ -18,7 +18,8 @@ const LoginSignup = (() => {
           <fieldset>
             <input type="password" name="password" placeholder="Password">
           </fieldset>
-          <button>Sign up</button>
+          <button onClick="createUser(event)">Sign up</button>
+          <p id="errors"></p>
         </form>
         <span class="material-icons signup" onClick="LoginSignup.hide('signup')">close</span>
       </div>
@@ -61,3 +62,19 @@ const LoginSignup = (() => {
   }
 
 })()
+
+
+function createUser(event) {
+  event.preventDefault();
+  const form = event.target
+  const data = Object.fromEntries(new FormData(signUpForm));
+
+  axios.post('/api/users', data)
+    .then(successResponse => window.location = '/')
+    .catch(errorResponse => {
+      console.log(errorResponse);
+      document.querySelector('#errors')
+        .innerHTML = errorResponse.response.data.message;
+    });
+}
+
