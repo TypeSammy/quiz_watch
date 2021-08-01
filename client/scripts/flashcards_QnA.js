@@ -10,6 +10,8 @@ const FlashcardsQA = (() => {
           <li><h2>JavaScript</h2></li>
           <li class="material-icons edit" onClick="FlashcardsQA.render('editCat')">edit</li>
           <li class="edit edit-txt" onClick="FlashcardsQA.render('editCat')">Edit deck</li>
+          <li class="material-icons edit" onClick="FlashcardsQA.render('addCard')">add_circle</li>
+          <li class="edit edit-txt" onClick="FlashcardsQA.render('addCard')"">Add card</li>
         </div>
         <li>1/10</li>
       </ul>
