@@ -44,7 +44,7 @@ UPDATE flashcards SET reminder = '2030-09-28 22:00' WHERE id = 2
 -- Remove table data without dropping the table, better than DELETE as it resets the table auto-increment value:
 TRUNCATE TABLE table_name;
 
--- TRIGGER EVENT + FUNCTION 
+-- TRIGGER EVENT + FUNCTION TO INSERT NEW CARDS INTO TABLE
 CREATE OR REPLACE FUNCTION insertStockFlashcards()
   RETURNS TRIGGER 
   LANGUAGE plpgsql
