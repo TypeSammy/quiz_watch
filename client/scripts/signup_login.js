@@ -7,23 +7,23 @@ const LoginSignup = (() => {
     const signupBox = document.querySelector("#signup")
     signupBox.classList.remove("hide")
     signupBox.innerHTML = `
-      <div class="signup-container">
-        <h2>Signup</h2>
-        <form id="sign-up-form" action="/" method="POST" onSubmit="createUser(event)">
-          <fieldset>
-            <input type="text" name="username" placeholder="Username">
-          </fieldset>
-          <fieldset>
-            <input type="text" name="email" placeholder="Email">
-          </fieldset>
-          <fieldset>
-            <input type="password" name="password" placeholder="Password">
-          </fieldset>
-          <button>Sign up</button>
-          <p id="errors"></p>
-        </form>
-        <span class="material-icons signup" onClick="LoginSignup.hide('signup')">close</span>
-      </div>
+    <div class="signup-container">
+      <h2>Signup</h2>
+      <form id="sign-up-form" action="/" method="POST" onSubmit="createUser(event)">
+        <fieldset>
+          <input type="text" name="username" placeholder="Username">
+        </fieldset>
+        <fieldset>
+          <input type="text" name="email" placeholder="Email">
+        </fieldset>
+        <fieldset>
+          <input type="password" name="password" placeholder="Password">
+        </fieldset>
+        <button>Sign up</button>
+        <p id="errors"></p>
+      </form>
+      <span class="material-icons signup" onClick="LoginSignup.hide('signup')">close</span>
+    </div>
     `
   }
   function renderLogin() {
@@ -82,6 +82,18 @@ function createUser(event) {
       document.querySelector('#errors')
         .innerHTML = errorResponse.response.data.message;
     });
+}
+
+
+// event listener to hide the pop up modals when clicked anywhere outside of it
+const modalSignUp = document.querySelector(".modal1")
+const modalLogin = document.querySelector(".modal2")
+window.onclick = function(event) {
+  if (event.target === modalSignUp) {
+    signup.classList.toggle("hide")
+  } else if (event.target === modalLogin) {
+    login.classList.toggle("hide")
+  }
 }
 
 // loginuser function TODO

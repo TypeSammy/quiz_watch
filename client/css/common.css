@@ -48,3 +48,7 @@ input {
 .hide {
   display: none
 }
+
+.quiz-watch {
+  cursor: pointer;
+}
