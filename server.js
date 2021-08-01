@@ -12,6 +12,8 @@ const sessionsController = require('./controllers/session_controller/session_con
 const usersController = require('./controllers/user_controller/users_controller')
 
 // require middlewares:
+const errorHandler = require("./middlewares/error_handler")
+
 const sessionConfig = {
     secret : process.env.SESSION_SECRET,
     cookie : {}
@@ -39,3 +41,5 @@ const port = process.env.PORT || 3000;
 app.listen(port , () => {
     console.log(`*** Listening on port ${port} ***`)
 })
+
+app.use(errorHandler)

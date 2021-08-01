@@ -17,7 +17,7 @@ const EditFlashcard = (() => {
             <label for="question">Answer:</label><br>
             <textarea name="answer" cols="20" rows="5">Answer information display here</textarea>
           </fieldset>
-          <button>Save</button>
+          <button onClick="updateFlashcard("question, hint, answer")>Save</button>
         </form>
       </div>
     `
@@ -35,3 +35,7 @@ const EditFlashcard = (() => {
   }
 
 })()
+
+// TO DO:
+// - need an updateFlashcard("question, hint, answer") function
+// - runs an update PSQL query
