@@ -19,3 +19,15 @@
   overflow: hidden;
   height: 40px;
 }
+
+.edit-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  background-color: white;
+}
+
+span.material-icons {
+  font-size: 1.2em;
+  cursor: pointer;
+}
