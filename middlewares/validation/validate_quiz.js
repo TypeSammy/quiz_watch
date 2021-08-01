@@ -9,26 +9,18 @@ function isNull(params) {
   return true
 }
 
-function validateUser(req, res, next) {
-  const {name, email, password} = req.body
+function validateFlashcard(req, res, next) {
+  const {question, hint, answer} = req.body
 
-    // (!name) will check if its all null, undefined, empty string etc.
-  // TODO: turn it into a function "isBlakn(name) - write a method"
-  if (isNull(name)) { 
-    throw validationError("Name is required")
-  } else if (isNull(email)) {
-    throw validationError("Email is required")
-  } else if (isNull(password)) {
-    throw validationError("Password is required")
-  } else if (password.length < 8) {
-    throw validationError("Password needs to be at least 8 characters long")
-  } else if (!(/[A-Z]/.test(password))) {
-    throw validationError("Password must contain at least one uppercase")
-  } else if (!(/[0-9]/.test(password))) {
-    throw validationError("Password must contain one number")
+  if (isNull(question)) { 
+    throw validationError("Question is required")
+  } else if (isNull(hint)) {
+    throw validationError("Hint is required")
+  } else if (isNull(answer)) {
+    throw validationError("Answer is required")
   }
 
   next()
 }
 
-module.exports = validateUser
+module.exports = validateFlashcard
