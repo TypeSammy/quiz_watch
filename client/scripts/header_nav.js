@@ -24,7 +24,11 @@ const Nav = (() => {
       //     </ul>
       //   </nav>
       // `
+<<<<<<< HEAD
       // IF SESSION IS FALSE:
+=======
+      // IF SESSSION IS FALSE:
+>>>>>>> eb566ab (comment)
       document.querySelector("#header-nav").innerHTML = `
         <nav>
           <h3>Quiz Watch</h3>
