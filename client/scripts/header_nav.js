@@ -1,5 +1,6 @@
 const Nav = (() => {
     function header() {
+<<<<<<< HEAD
       if (state.logInStatus) {
         document.querySelector("#header-nav").innerHTML  = `
         <nav>
@@ -27,6 +28,90 @@ const Nav = (() => {
       }
       if(!(state.logInStatus)) {
         document.querySelector("#header-nav").innerHTML = `
+=======
+
+      axios.get('/api/sessions')
+        .then (response => {
+          console.log(response.data)
+          if (response.data.isLoggedIn) {
+            document.querySelector("#header-nav").innerHTML  = `
+            <nav>
+              <h3 class="quiz-watch" onClick="Nav.displayLandingPage()">Quiz Watch</h3>
+              <ul>
+                <div>
+                  <li class="material-icons flashcards" onClick="Nav.playFlashcards()">view_carousel</li>
+                  <li class="nav-text" onClick="Nav.playFlashcards()">Flashcards</li>
+                </div>
+                <div>
+                  <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
+                  <li class="nav-text" onClick="Nav.render('notifications')">Notifications</li>
+                </div>
+                <div>
+                  <li class="material-icons signup" onClick="render('Nav.user')">account_circle</li>
+                  <li class="nav-text" onClick="Nav.render('user')">Username</li>
+                </div>
+                <div>
+                  <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
+                  <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
+                </div>
+              </ul>
+            </nav>
+          `
+          } else {
+            console.log(response.data)
+            document.querySelector("#header-nav").innerHTML = `
+            <nav>
+              <h3>Quiz Watch</h3>
+              <ul>
+                <div>
+                  <li class="material-icons signup" onClick="Nav.render('signup')">account_circle</li>
+                  <li class="nav-text" onClick="Nav.render('signup')">Sign up</li>
+                </div>
+                <div>
+                  <li class="material-icons login" onClick="Nav.render('login')">login</li>
+                  <li class="nav-text" onClick="Nav.render('login')">Login</li>
+                </div>
+              </ul>
+            </nav>
+          `
+          }
+
+
+        })
+
+
+
+      // IF SESSIONS IS TRUE
+<<<<<<< HEAD
+      
+      // IF SESSION IS FALSE:
+=======
+      // document.querySelector("#header-nav").innerHTML  = `
+      //   <nav>
+      //     <h3 class="quiz-watch" onClick="Nav.displayLandingPage()">Quiz Watch</h3>
+      //     <ul>
+      //       <div>
+      //         <li class="material-icons flashcards" onClick="Nav.playFlashcards()">view_carousel</li>
+      //         <li class="nav-text" onClick="Nav.playFlashcards()">Flashcards</li>
+      //       </div>
+      //       <div>
+      //         <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
+      //         <li class="nav-text" onClick="Nav.render('notifications')">Notifications</li>
+      //       </div>
+      //       <div>
+      //         <li class="material-icons signup" onClick="render('Nav.user')">account_circle</li>
+      //         <li class="nav-text" onClick="Nav.render('user')">Username</li>
+      //       </div>
+      //       <div>
+      //         <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
+      //         <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
+      //       </div>
+      //     </ul>
+      //   </nav>
+      // `
+      // IF SESSION IS FALSE:
+      document.querySelector("#header-nav").innerHTML = `
+>>>>>>> 9a57f0b (some sort of tab)
         <nav>
           <h3>Quiz Watch</h3>
           <ul>
@@ -41,7 +126,11 @@ const Nav = (() => {
           </ul>
         </nav>
       `
+<<<<<<< HEAD
       }
+=======
+>>>>>>> 7fb2453 (pushing before rebase)
+>>>>>>> 9a57f0b (some sort of tab)
     }
 
 
@@ -114,7 +203,11 @@ const Nav = (() => {
     displayLogin: displayLogin.apply,
     playFlashcards: playFlashcards,
     displayLandingPage: displayLandingPage,
+<<<<<<< HEAD
     header: header
+=======
+    render: render
+>>>>>>> 9a57f0b (some sort of tab)
   }
 
 })()
