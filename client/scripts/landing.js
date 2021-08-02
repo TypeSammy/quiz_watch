@@ -7,7 +7,7 @@ const LandingPage = (() => {
         <div class="main-copy">
           <h1>Lorem Ipsum Dolor Sit</h1>
           <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-          <button class="get-started-btn" onClick="LandingPage.render()">Get Started</button>
+          <button class="get-started-btn" onClick="LandingPage.getStarted()">Get Started</button>
         </div>
         <div class="main-img">
           <img src="./assets/character 16 crop.svg" alt="two people studying">
@@ -42,17 +42,14 @@ const LandingPage = (() => {
     `
   }
   renderLandingPage()
-  function render(component) {
-    // if (/* user is not logged in */) {
-    //   // signup.classList.toggle("hide")
-    // } else {
-      landingPage.classList.toggle("hide")
-      categoryHeader.classList.toggle("hide")
-      questionDisplay.classList.toggle("hide")
-    // }
+  function getStarted() {
+    // IF USER NOT LOGGED IN =>
+    // open Sign in pop up
+    // IF USER IS LOGGED IN =>
+    Nav.playFlashcards()
     
   }
   return {
-    render: render
+    getStarted: getStarted
   }
 })()
