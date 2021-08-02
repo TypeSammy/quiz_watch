@@ -1,5 +1,6 @@
 const login = document.querySelector("#login")
 const signup = document.querySelector("#signup")
+
 // const validateUser = require("../../middlewares/validation/validate_user")
 
 const LoginSignup = (() => {
@@ -103,7 +104,10 @@ function logInUser(event) {
 	axios.post("/api/sessions", data)
 		.then(successResponse => {
       console.log(successResponse)
-			window.location = "/"
+      state.logInStatus = true
+      Nav.header()
+      login.classList.toggle("hide")
+      console.log(state.logInStatus)
 		})
 		.catch(errorResponse => {
 			console.log(errorResponse);

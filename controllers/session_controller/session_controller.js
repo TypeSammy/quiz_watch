@@ -8,12 +8,11 @@ router.post('/', (req, res) => {
     User.findByEmail(req.body.email)
         .then(user => {
             if (bcrypt.compareSync(req.body.password, user.password_digest)) {
-                req.session.isLoggedIn = true
+                req.session.userId = user.id
                 res.json({"message":"Login Successful"})
             } else {
                 res.status(401).json({error: "No such user found"})
             }
-            // window.location = "/"
         })
 })
 
