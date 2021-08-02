@@ -7,13 +7,13 @@ const User = require("../../model/user_model/user_model")
 router.post('/', (req, res) => {
     User.findByEmail(req.body.email)
         .then(user => {
-            console.log(user)
             if (bcrypt.compareSync(req.body.password, user.password_digest)) {
-                req.session.userId = user.id
+                req.session.isLoggedIn = true
+                res.json({"message":"Login Successful"})
             } else {
                 res.status(401).json({error: "No such user found"})
             }
-            res.json({"message":"Login Successful"})
+            // window.location = "/"
         })
 })
 
