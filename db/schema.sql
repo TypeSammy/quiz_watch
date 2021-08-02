@@ -52,8 +52,15 @@ CREATE OR REPLACE FUNCTION insertStockFlashcards()
   BEGIN
 
   INSERT INTO "flashcards" ("user_id", "question", "hint", "answer", "answered_correctly", "answered_incorrectly", "reminder", "category")
-
   VALUES(NEW."id", 'In JS how do you remove whitespace', 'for example shrek 1 ', 'console.log(shrek 1.trim)', 0, 0, now(), 'Javascript' );
+
+  INSERT INTO "flashcards" ("user_id", "question", "hint", "answer", "answered_correctly", "answered_incorrectly", "reminder", "category")
+  VALUES(NEW."id", 'In JS how do you remove whitespace', 'for example shrek 1 ', 'console.log(shrek 1.trim)', 0, 0, now(), 'Javascript' );
+
+  INSERT INTO "flashcards" ("user_id", "question", "hint", "answer", "answered_correctly", "answered_incorrectly", "reminder", "category")
+  VALUES(NEW."id", 'What is the output of:
+   let newVariable = "Shreklord"
+   console.log(typeof newVariable)', ' What does typeof do ',' tells us what the variable type is - string', 0, 0, now(), 'Javascript' );
 
 RETURN NEW;
 END;
