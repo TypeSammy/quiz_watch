@@ -44,3 +44,23 @@ UPDATE flashcards SET reminder = '2030-09-28 22:00' WHERE id = 2
 -- Remove table data without dropping the table, better than DELETE as it resets the table auto-increment value:
 TRUNCATE TABLE table_name;
 
+-- TRIGGER EVENT + FUNCTION TO INSERT NEW CARDS INTO TABLE
+CREATE OR REPLACE FUNCTION insertStockFlashcards()
+  RETURNS TRIGGER 
+  LANGUAGE plpgsql
+  AS $$
+  BEGIN
+
+  INSERT INTO "flashcards" ("user_id", "question", "hint", "answer", "answered_correctly", "answered_incorrectly", "reminder", "category")
+
+  VALUES(NEW."id", 'In JS how do you remove whitespace', 'for example shrek 1 ', 'console.log(shrek 1.trim)', 0, 0, now(), 'Javascript' );
+
+RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER stockFlashcards
+  AFTER INSERT
+  ON "users"
+  FOR EACH ROW
+  EXECUTE PROCEDURE insertStockFlashcards();
