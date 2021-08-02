@@ -32,7 +32,7 @@ const LoginSignup = (() => {
     signupBox.innerHTML = `
       <div class="login-container">
         <h2>Login</h2>
-        <form id="login-up-form" action="/" method="POST" onSubmit="logInUser(event)">
+        <form id="login-form" action="/" method="POST" onSubmit="logInUser(event)">
           <fieldset>
             <input type="text" name="username" placeholder="Username">
           </fieldset>
@@ -45,7 +45,6 @@ const LoginSignup = (() => {
         <span class="material-icons login" onClick="LoginSignup.hide('login')">close</span>
       </div>
     `
-    //TODO insert login fucntion incl button link!
   }
   renderSignup()
   renderLogin()
@@ -65,23 +64,23 @@ const LoginSignup = (() => {
 
 
 function createUser(event) {
-  event.preventDefault();
-  const signUpForm = event.target
-  const data = Object.fromEntries(new FormData(signUpForm));
+	event.preventDefault()
+	const signUpForm = event.target
+	const data = Object.fromEntries(new FormData(signUpForm));
 
-  // validateUser()
+	// validateUser()
 
-  axios.post('/api/users', data)
-    .then(successResponse => {
-      const currentUser = successResponse.data
-      window.location = "/"
-      // state.user.push(currentUser) //needs an default user object in the cookie/session
-    })
-    .catch(errorResponse => {
-      console.log(errorResponse);
-      document.querySelector('#errors')
-        .innerHTML = errorResponse.response.data.message;
-    });
+	axios.post("/api/users", data)
+		.then(successResponse => {
+		const currentUser = successResponse.data
+		window.location = "/"
+		// state.user.push(currentUser) //needs an default user object in the cookie/session
+		})
+		.catch(errorResponse => {
+			console.log(errorResponse);
+			document.querySelector("#errors")
+			.innerHTML = errorResponse.response.data.message;
+		});
 }
 
 
@@ -97,3 +96,23 @@ window.onclick = function(event) {
 }
 
 // loginuser function TODO
+function logInUser(event) {
+	event.preventDefault()
+	const loginForm = event.target
+	const data = Object.fromEntries(new FormData(loginForm))
+
+	// validateUser() TODO
+
+	axios.get("/api/sessions", data)
+		//TODO - validate user before returning data and moving to the next stage!
+		.then(successResponse => {
+			const currentUser = successResponse.data
+			window.location = "/"
+			// state.user.push(currentUser) //needs an default user object in the cookie/session
+		})
+		.catch(errorResponse => {
+			console.log(errorResponse);
+			document.querySelector("#errors")
+			.innerHTML = errorResponse.response.data.message;
+		});
+}
