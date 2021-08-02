@@ -41,6 +41,11 @@ const Nav = (() => {
       //   </nav>
       // `
     }
+
+
+  
+
+  // Calls header function 
   header()
 
   function render(component) {

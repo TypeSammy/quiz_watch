@@ -19,15 +19,13 @@ const User = {
     findByEmail(email) {
         const userEmail = email
         const sql = `
-            SELECT  * FROM users WHERE email = $1
+            SELECT * FROM users WHERE email = $1
         `
-        return db.query(sql, [email])
+        return db.query(sql, [userEmail])
         .then(dbResponse => {
             return dbResponse.rows[0];
         });
-
     }
-
 }
 
 module.exports = User;
