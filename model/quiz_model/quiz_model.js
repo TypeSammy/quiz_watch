@@ -23,7 +23,17 @@ const Flashcards = {
         `
         return db.query(sql, [userId])
             .then(dbResponse => {
-                return dbResponse
+                return dbResponse.rows
+            })
+    }, 
+
+    flashcardsDue(userId) {
+        const sql = `
+            SELECT * FROM flashcards WHERE user_id = $1 and reminder < now()
+        `
+        return db.query(sql, [userId])
+            .then(dbResponse => {
+                return dbResponse.rows
             })
     }, 
 
@@ -33,7 +43,7 @@ const Flashcards = {
         `
         return db.query(sql, [timestamp, flashcardId])
             .then(dbResponse => {
-                return dbResponse
+                return dbResponse.rows
             })
     }
 }
