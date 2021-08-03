@@ -34,6 +34,7 @@ app.use(express.json())
 app.use(express.static("client"))
 app.use(session(sessionConfig));
 
+app.get("/flashcards", (req, res) => res.render("flashcards"))
 app.use('/api/users', usersController)
 app.use('/api/sessions', sessionsController)
 app.use('/api/quiz', quizController)

@@ -3,11 +3,11 @@ const Nav = (() => {
     if (state.logInStatus) {
       document.querySelector("#header-nav").innerHTML = `
         <nav>
-        <a href="/index.html"><h3>Quiz Watch</h3></a>
+        <a href="/"><h3>Quiz Watch</h3></a>
         <ul>
           <div>
             <li class="material-icons flashcards"><a href="/flashcards.html">view_carousel</a></li>
-            <li> <a href="/flashcards.html">Flashcards</a></li>
+            <li class="nav-text"> <a href="/flashcards.html">Flashcards</a></li>
           </div>
           <div>
             <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
@@ -27,7 +27,7 @@ const Nav = (() => {
     } else {
       document.querySelector("#header-nav").innerHTML = `
         <nav>
-        <a href="/index.html"><h3>Quiz Watch</h3></a>
+        <a href="/"><h3>Quiz Watch</h3></a>
           <ul>
             <div>
               <li class="material-icons signup" onClick="Nav.render('signup')">account_circle</li>

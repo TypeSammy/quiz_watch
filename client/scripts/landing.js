@@ -7,7 +7,7 @@ const LandingPage = (() => {
         <div class="main-copy">
           <h1>Lorem Ipsum Dolor Sit</h1>
           <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-          <a class="button" onClick="LandingPage.getStarted(event)" href="/flashcards.html">Get Started</a>
+          <a class="button" onClick="LandingPage.getStarted(event)">Get Started</a>
         </div>
         <div class="main-img">
           <img src="./assets/character 16 crop.svg" alt="two people studying">
@@ -18,15 +18,15 @@ const LandingPage = (() => {
         <ul>
           <div>
             <li class="material-icons check_circle">check_circle</li>
-            <li>Sit amet, consectetur</li>
+            <li>Sit amet, cons</li>
           </div>
           <div>
             <li class="material-icons check_circle">check_circle</li>
-            <li>Sit amet, consectetur</li>
+            <li>Sit amet, cons</li>
           </div>
           <div>
             <li class="material-icons check_circle">check_circle</li>
-            <li>Sit amet, consectetur</li>
+            <li>Sit amet, cons</li>
           </div>
         </ul>
       </section>
@@ -36,7 +36,7 @@ const LandingPage = (() => {
         </div>
         <div>
           <h2>Tempor incididunt ut labore</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
         </div>
       </section>
     `
@@ -46,8 +46,9 @@ const LandingPage = (() => {
     if (!(state.logInStatus)) {
       event.preventDefault()
       login.classList.toggle("hide")
+    } else {
+      document.querySelector(".button").href = "/flashcards.html"
     }
-    
   }
   return {
     getStarted: getStarted
