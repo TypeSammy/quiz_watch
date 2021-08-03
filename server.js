@@ -10,6 +10,8 @@ const app = express()
 // Controllers
 const sessionsController = require('./controllers/session_controller/session_controller')
 const usersController = require('./controllers/user_controller/users_controller')
+const quizController = require('./controllers/quiz_controller/quiz_controller')
+
 
 // require middlewares:
 const errorHandler = require("./middlewares/error_handler")
@@ -34,6 +36,7 @@ app.use(session(sessionConfig));
 
 app.use('/api/users', usersController)
 app.use('/api/sessions', sessionsController)
+app.use('/api/quiz', quizController)
 
 // For heroku deployment
 const port = process.env.PORT || 3000;

@@ -109,6 +109,18 @@ function logInUser(event) {
       login.classList.toggle("hide")
       console.log(state.logInStatus)
 		})
+    .then(successResponse => {
+      axios.get('/api/quiz')
+      .then(response => {
+        state.flashcardsdue = response.data
+      })
+    })
+    .then(successResponse => {
+      axios.get('/api/quiz/all')
+      .then(response => {
+        state.allFlashcards = response.data
+      })
+    })
 		.catch(errorResponse => {
 			console.log(errorResponse);
 			document.querySelector("#errors")

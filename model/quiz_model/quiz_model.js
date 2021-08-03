@@ -23,17 +23,27 @@ const Flashcards = {
         `
         return db.query(sql, [userId])
             .then(dbResponse => {
-                return dbResponse
+                return dbResponse.rows
             })
     }, 
 
-    updateFlashcardReminder(timestamp, flashcardId) {
+    flashcardsDue(userId) {
         const sql = `
-            UPDATE flashcards SET reminder = TIMESTAMP '$1' WHERE ID = $2;
+            SELECT * FROM flashcards WHERE user_id = $1 and reminder < now()
         `
-        return db.query(sql, [timestamp, flashcardId])
+        return db.query(sql, [userId])
             .then(dbResponse => {
-                return dbResponse
+                return dbResponse.rows
+            })
+    }, 
+
+    updateFlashcardReminder(timestamp, id) {
+        const sql = `
+            UPDATE flashcards SET reminder = timestamp $1 WHERE ID = $2;
+        `
+        return db.query(sql, [timestamp, id ])
+            .then(dbResponse => {
+                return dbResponse.rows[0]
             })
     }
 }
