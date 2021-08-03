@@ -6,7 +6,6 @@ const signup = document.querySelector("#signup")
 const LoginSignup = (() => {
   function renderSignup() {
     const signupBox = document.querySelector("#signup")
-    signupBox.classList.remove("hide")
     signupBox.innerHTML = `
     <div class="signup-container">
       <h2>Signup</h2>

@@ -21,9 +21,10 @@
 
 .main-copy p {
   width: 70%;
+  margin-bottom: 6%;
 }
 
-.main-copy button {
+.main-copy button, .button {
   width: 33%;
 }
 
@@ -87,4 +88,9 @@ h2 {
 
 .third-strip p {
   width: 90%;
+}
+
+.button {
+  font: 400 13.3333px Arial;
+  padding: 1em 2em;
 }

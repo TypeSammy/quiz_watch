@@ -1,119 +1,33 @@
 const Nav = (() => {
-    function header() {
-<<<<<<< HEAD
-      if (state.logInStatus) {
-        document.querySelector("#header-nav").innerHTML  = `
-        <nav>
-          <h3 class="quiz-watch" onClick="Nav.displayLandingPage()">Quiz Watch</h3>
-          <ul>
-            <div>
-              <li class="material-icons flashcards" onClick="Nav.playFlashcards()">view_carousel</li>
-              <li class="nav-text" onClick="Nav.playFlashcards()">Flashcards</li>
-            </div>
-            <div>
-              <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
-              <li class="nav-text" onClick="Nav.render('notifications')">Notifications</li>
-            </div>
-            <div>
-              <li class="material-icons signup" onClick="render('Nav.user')">account_circle</li>
-              <li class="nav-text" onClick="Nav.render('user')">Username</li>
-            </div>
-            <div>
-              <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
-              <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
-            </div>
-          </ul>
-        </nav>
-      `
-      }
-      if(!(state.logInStatus)) {
-        document.querySelector("#header-nav").innerHTML = `
-=======
-
-      axios.get('/api/sessions')
-        .then (response => {
-          console.log(response.data)
-          if (response.data.isLoggedIn) {
-            document.querySelector("#header-nav").innerHTML  = `
-            <nav>
-              <h3 class="quiz-watch" onClick="Nav.displayLandingPage()">Quiz Watch</h3>
-              <ul>
-                <div>
-                  <li class="material-icons flashcards" onClick="Nav.playFlashcards()">view_carousel</li>
-                  <li class="nav-text" onClick="Nav.playFlashcards()">Flashcards</li>
-                </div>
-                <div>
-                  <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
-                  <li class="nav-text" onClick="Nav.render('notifications')">Notifications</li>
-                </div>
-                <div>
-                  <li class="material-icons signup" onClick="render('Nav.user')">account_circle</li>
-                  <li class="nav-text" onClick="Nav.render('user')">Username</li>
-                </div>
-                <div>
-                  <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
-                  <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
-                </div>
-              </ul>
-            </nav>
-          `
-          } else {
-            console.log(response.data)
-            document.querySelector("#header-nav").innerHTML = `
-            <nav>
-              <h3>Quiz Watch</h3>
-              <ul>
-                <div>
-                  <li class="material-icons signup" onClick="Nav.render('signup')">account_circle</li>
-                  <li class="nav-text" onClick="Nav.render('signup')">Sign up</li>
-                </div>
-                <div>
-                  <li class="material-icons login" onClick="Nav.render('login')">login</li>
-                  <li class="nav-text" onClick="Nav.render('login')">Login</li>
-                </div>
-              </ul>
-            </nav>
-          `
-          }
-
-
-        })
-
-
-
-      // IF SESSIONS IS TRUE
-<<<<<<< HEAD
-      
-      // IF SESSION IS FALSE:
-=======
-      // document.querySelector("#header-nav").innerHTML  = `
-      //   <nav>
-      //     <h3 class="quiz-watch" onClick="Nav.displayLandingPage()">Quiz Watch</h3>
-      //     <ul>
-      //       <div>
-      //         <li class="material-icons flashcards" onClick="Nav.playFlashcards()">view_carousel</li>
-      //         <li class="nav-text" onClick="Nav.playFlashcards()">Flashcards</li>
-      //       </div>
-      //       <div>
-      //         <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
-      //         <li class="nav-text" onClick="Nav.render('notifications')">Notifications</li>
-      //       </div>
-      //       <div>
-      //         <li class="material-icons signup" onClick="render('Nav.user')">account_circle</li>
-      //         <li class="nav-text" onClick="Nav.render('user')">Username</li>
-      //       </div>
-      //       <div>
-      //         <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
-      //         <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
-      //       </div>
-      //     </ul>
-      //   </nav>
-      // `
-      // IF SESSION IS FALSE:
+  function header() {
+    if (state.logInStatus) {
       document.querySelector("#header-nav").innerHTML = `
->>>>>>> 9a57f0b (some sort of tab)
         <nav>
-          <h3>Quiz Watch</h3>
+        <a href="/index.html"><h3>Quiz Watch</h3></a>
+        <ul>
+          <div>
+            <li class="material-icons flashcards"><a href="/flashcards.html">view_carousel</a></li>
+            <li> <a href="/flashcards.html">Flashcards</a></li>
+          </div>
+          <div>
+            <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
+            <li class="nav-text" onClick="Nav.render('notifications')">Notifications</li>
+          </div>
+          <div>
+            <li class="material-icons signup" onClick="render('Nav.user')">account_circle</li>
+            <li class="nav-text" onClick="Nav.render('user')">Username</li>
+          </div>
+          <div>
+            <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
+            <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
+          </div>
+        </ul>
+      </nav>
+      `
+    } else {
+      document.querySelector("#header-nav").innerHTML = `
+        <nav>
+        <a href="/index.html"><h3>Quiz Watch</h3></a>
           <ul>
             <div>
               <li class="material-icons signup" onClick="Nav.render('signup')">account_circle</li>
@@ -126,12 +40,8 @@ const Nav = (() => {
           </ul>
         </nav>
       `
-<<<<<<< HEAD
-      }
-=======
->>>>>>> 7fb2453 (pushing before rebase)
->>>>>>> 9a57f0b (some sort of tab)
     }
+  }
 
 
   // Calls header function 
@@ -144,7 +54,6 @@ const Nav = (() => {
       login.classList.toggle("hide")
     } else if (component === "flashcards") {
       if (categoryHeader.classList.contains("hide")) {
-        landingPage.classList.toggle("hide")
         categoryHeader.classList.toggle("hide")
         questionDisplay.classList.toggle("hide")
       }
@@ -169,32 +78,9 @@ const Nav = (() => {
         editFlashcard.classList.toggle("hide")
       } else if (!(allFlashcards.classList.contains("hide"))) {
         allFlashcards.classList.toggle("hide")
-      } else if (!(landingPage.classList.contains("hide"))) {
-        landingPage.classList.toggle("hide")
       }
       questionDisplay.classList.toggle("hide")
     } 
-  }
-
-  function displayLandingPage() {
-    if (landingPage.classList.contains("hide")) {
-      if (!(categoryHeader.classList.contains("hide"))) {
-        categoryHeader.classList.toggle("hide")
-      } else if (!(createFlashcard.classList.contains("hide"))) {
-        createFlashcard.classList.toggle("hide")
-      } if (!(editFlashcard.classList.contains("hide"))) {
-        editFlashcard.classList.toggle("hide")
-      } else if (!(allFlashcards.classList.contains("hide"))) {
-        allFlashcards.classList.toggle("hide")
-      } else if (!(answerDisplay.classList.contains("hide"))) {
-        answerDisplay.classList.toggle("hide")
-      } else if (!(answerDisplay.classList.contains("hide"))) {
-        answerDisplay.classList.toggle("hide")
-      } else if (!(questionDisplay.classList.contains("hide"))) {
-        questionDisplay.classList.toggle("hide")
-      }
-      landingPage.classList.toggle("hide")
-    }
   }
   
   return {
@@ -202,12 +88,7 @@ const Nav = (() => {
     displaySignup: displaySignup,
     displayLogin: displayLogin.apply,
     playFlashcards: playFlashcards,
-    displayLandingPage: displayLandingPage,
-<<<<<<< HEAD
     header: header
-=======
-    render: render
->>>>>>> 9a57f0b (some sort of tab)
   }
 
 })()

@@ -15,7 +15,7 @@ body {
   padding: 0;
 }
 
-button {
+button, .button {
   border: none;
   background: #F78066;
   color: rgb(255 255 255);
@@ -23,7 +23,7 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
+button:hover, .button:hover {
   background: #eb755a;
 }
 
@@ -51,4 +51,13 @@ input {
 
 .quiz-watch {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h3 {
+  color: white;
 }

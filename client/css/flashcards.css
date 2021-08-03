@@ -136,3 +136,7 @@ label {
 button.delete:hover {
   background: rgb(118 118 118);
 }
+
+.flashcards-link {
+  cursor: pointer;
+}
