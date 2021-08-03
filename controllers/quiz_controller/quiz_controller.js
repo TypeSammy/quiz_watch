@@ -17,11 +17,20 @@ router.get('/all', (req,res) => {
   .then(quiz => res.json(quiz))
 })
 
-router.patch('/', (req,res) => {
+// router.patch('/', (req,res) => {
+//   Flashcards.updateFlashcardReminder(req.body.timestamp, req.body.id).then(quiz =>
+//    res.json(
+//     quiz : 'edited flashcard successfully'))
+// })
+
+router.patch('/', (req, res) => {
+  console.log(req.body.timestamp)
   Flashcards.updateFlashcardReminder(req.body.timestamp, req.body.id)
-  return res.json({
-    message: 'edited flashcard successfully'
-  })
+  res.json({})
 })
+
+
+
+
 
 module.exports = router

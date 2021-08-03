@@ -39,11 +39,11 @@ const Flashcards = {
 
     updateFlashcardReminder(timestamp, id) {
         const sql = `
-            UPDATE flashcards SET reminder = timestamp $1 WHERE ID = $2;
+            UPDATE flashcards SET reminder =  (to_timestamp($1,'YYYY-MM-DD hh24:MI:SS')) WHERE id = $2;
         `
         return db.query(sql, [timestamp, id ])
             .then(dbResponse => {
-                return dbResponse.rows[0]
+                return dbResponse.rows
             })
     }
 }
