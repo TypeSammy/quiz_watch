@@ -2,9 +2,10 @@ const express = require("express");
 const bcrypt = require("bcrypt")
 const router = express.Router();
 const User = require("../../model/user_model/user_model")
+const validateLogin = require("../../middlewares/validation/validate_user")
 
 // Login Session controller
-router.post('/', (req, res) => {
+router.post('/', validateLogin, (req, res) => {
     User.findByEmail(req.body.email)
         .then(user => {
             if (bcrypt.compareSync(req.body.password, user.password_digest)) {

@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt")
+
 function validationError(msg) {
   const error = new Error(msg)
   error.status = 422
@@ -9,7 +11,7 @@ function isNull(params) {
   return true
 }
 
-function validateUser(req, res, next) {
+function validateSignup(req, res, next) {
   const {username, email, password} = req.body
 
   if (isNull(username)) { 
@@ -29,4 +31,15 @@ function validateUser(req, res, next) {
   next()
 }
 
-module.exports = validateUser
+function validateLogin(req, res, next) {
+  const {email, password} = req.body
+  if (isNull(email)) {
+    throw validationError("Email is empty")
+  } else if (isNull(password)) {
+    throw validationError("Password is empty")
+  } 
+// TO DO validation for incorrect password
+}
+
+module.exports = validateSignup
+module.exports = validateLogin

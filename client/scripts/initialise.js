@@ -1,5 +1,5 @@
 const state = {
-    logInStatus: true,
+    logInStatus: false,
     flashcardsdue: [],
     allFlashcards: []
 }
