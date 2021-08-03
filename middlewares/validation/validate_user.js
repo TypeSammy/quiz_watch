@@ -31,15 +31,15 @@ function validateSignup(req, res, next) {
   next()
 }
 
-function validateLogin(req, res, next) {
-  const {email, password} = req.body
-  if (isNull(email)) {
-    throw validationError("Email is empty")
-  } else if (isNull(password)) {
-    throw validationError("Password is empty")
-  } 
-// TO DO validation for incorrect password
-}
+// function validateLogin(req, res, next) {
+//   const {email, password} = req.body
+//   if (isNull(email)) {
+//     throw validationError("Email is empty")
+//   } else if (isNull(password)) {
+//     throw validationError("Password is empty")
+//   } 
+// // TO DO validation for incorrect password
+// }
 
 module.exports = validateSignup
-module.exports = validateLogin
+// module.exports = validateLogin

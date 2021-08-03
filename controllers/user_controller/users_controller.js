@@ -2,11 +2,11 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../../model/user_model/user_model");
-const validateSignup = require("../../middlewares/validation/validate_user"); // TODO
+// const validateSignup = require("../../middlewares/validation/validate_user"); // TODO
 
 
 
-router.post('/', validateSignup, (req, res) => {
+router.post('/', (req, res) => {
   const {username, email, password} = req.body
 
   User.create(username, email, password)

@@ -102,7 +102,7 @@ function logInUser(event) {
 
 	axios.post("/api/sessions", data)
 		.then(successResponse => {
-      console.log(successResponse)
+      console.log(successResponse) // TEST
       state.logInStatus = true
       Nav.header()
       login.classList.toggle("hide")
@@ -121,7 +121,7 @@ function logInUser(event) {
       })
     })
 		.catch(errorResponse => {
-			console.log(errorResponse);
+			console.log(errorResponse); // TEST
 			document.querySelector("#errors")
 			.innerHTML = errorResponse.response.data.message;
 		});
