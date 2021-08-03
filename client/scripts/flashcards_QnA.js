@@ -134,4 +134,29 @@ const FlashcardsQA = (() => {
     returnFlashcads: returnFlashcads
   }
 
+  
+
 })()
+
+function renderFlashcards() {
+  document.querySelector("#question-display").innerHTML = 
+    `
+      <section class=“question-display-container”>
+      ${flashcards()}
+      </section>
+    `
+}
+
+function flashcards() {
+  return state.flashcardsdue.map(flashcard => {
+    `
+      <div class="question">${flashcard.question}</div>
+      <div class="hint">
+        <span class="material-icons">help</span><div class="hint">${flashcard.hint}</div>
+      </div>
+      <button onClick="FlashcardsQA.answerBtn()">${flashcard.answer}</button>
+    `
+  }).join("")
+}
+
+renderFlashcards()
