@@ -61,3 +61,9 @@ a {
 h3 {
   color: white;
 }
+
+#errors {
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(247 128 102);
+}
