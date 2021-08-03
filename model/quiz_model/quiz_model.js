@@ -37,13 +37,13 @@ const Flashcards = {
             })
     }, 
 
-    updateFlashcardReminder(timestamp, flashcardId) {
+    updateFlashcardReminder(timestamp, id) {
         const sql = `
-            UPDATE flashcards SET reminder = TIMESTAMP '$1' WHERE ID = $2;
+            UPDATE flashcards SET reminder = timestamp $1 WHERE ID = $2;
         `
-        return db.query(sql, [timestamp, flashcardId])
+        return db.query(sql, [timestamp, id ])
             .then(dbResponse => {
-                return dbResponse.rows
+                return dbResponse.rows[0]
             })
     }
 }
