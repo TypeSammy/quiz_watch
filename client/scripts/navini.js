@@ -27,4 +27,6 @@ function isUserLoggedin() {
     })
 
   }
+
 isUserLoggedin()
+
