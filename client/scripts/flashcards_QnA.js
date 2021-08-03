@@ -4,31 +4,16 @@ const questionDisplay = document.querySelector("#question-display")
 const createFlashcard = document.querySelector("#create-card")
 
 const FlashcardsQA = (() => {
-  function renderCategoryHeader() {
-    document.querySelector("#category-container").innerHTML = `
-      <ul class="category-header">
-        <div class="header-left">
-          <li><h2>JavaScript</h2></li>
-          <li class="material-icons edit" onClick="FlashcardsQA.editCategory()">edit</li>
-          <li class="edit edit-txt" onClick="FlashcardsQA.editCategory()">Edit deck</li>
-          <li class="material-icons edit" onClick="FlashcardsQA.createCard(id)">add_circle</li>
-          <li class="edit edit-txt" onClick="FlashcardsQA.createCard(id)">Add card</li>
-        </div>
-        <li>1/10</li>
-      </ul>
-    `
-  }
-  function question() {
-    document.querySelector("#question-display").innerHTML = `
-      <section class="question-display-container">
-        <div class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="hint">
-          <span class="material-icons">help</span><div class="hint">Hint</div>
-        </div>
-        <button onClick="FlashcardsQA.answerBtn()">Answer</button>
-      </section>
-    `
-  }
+  // function renderCategoryHeader() {
+  //   document.querySelector("#category-container").innerHTML = `
+
+  //   `
+  // }
+  // function question() {
+  //   document.querySelector("#question-display").innerHTML = `
+
+  //   `
+  // }
   // TODO add hints
   function answer() {
     document.querySelector("#answer-display").innerHTML = `
@@ -67,12 +52,10 @@ const FlashcardsQA = (() => {
     `
   }
 
-  renderCategoryHeader() 
-  question()
+  // renderCategoryHeader() 
+  // question()
   answer()
   create()
-  categoryHeader.classList.toggle("hide")
-  questionDisplay.classList.toggle("hide")
   answerDisplay.classList.toggle("hide")
   createFlashcard.classList.toggle("hide")
 
@@ -138,13 +121,17 @@ const FlashcardsQA = (() => {
       createFlashcard.classList.toggle("hide")
     }
   }
+  function returnFlashcads() {
+    Nav.playFlashcards()
+  }
 
   return { // this returns all functions so the onClick event listener can work
     answerBtn: answerBtn,
     difficultyBtn: difficultyBtn,
     createCard: createCard,
     editCategory: editCategory,
-    createCard: createCard
+    createCard: createCard,
+    returnFlashcads: returnFlashcads
   }
 
 })()

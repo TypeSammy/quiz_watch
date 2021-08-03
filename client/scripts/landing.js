@@ -7,7 +7,7 @@ const LandingPage = (() => {
         <div class="main-copy">
           <h1>Lorem Ipsum Dolor Sit</h1>
           <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-          <button class="get-started-btn" onClick="LandingPage.getStarted()">Get Started</button>
+          <a class="button" onClick="LandingPage.getStarted(event)" href="/flashcards.html">Get Started</a>
         </div>
         <div class="main-img">
           <img src="./assets/character 16 crop.svg" alt="two people studying">
@@ -42,11 +42,11 @@ const LandingPage = (() => {
     `
   }
   renderLandingPage()
-  function getStarted() {
-    // IF USER NOT LOGGED IN =>
-    // open Sign in pop up
-    // IF USER IS LOGGED IN =>
-    Nav.playFlashcards()
+  function getStarted(event) {
+    if (!(state.logInStatus)) {
+      event.preventDefault()
+      login.classList.toggle("hide")
+    }
     
   }
   return {
