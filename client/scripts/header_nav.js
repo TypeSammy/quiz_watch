@@ -18,8 +18,8 @@ const Nav = (() => {
             <li class="nav-text" onClick="Nav.render('user')">Username</li>
           </div>
           <div>
-            <li class="material-icons login" onClick="render('Nav.logout')">logout</li>
-            <li class="nav-text" onClick="Nav.render('logout')">Logout</li>
+            <li class="material-icons login" onClick="Nav.logout(event)">logout</li>
+            <li class="nav-text" onClick="Nav.logout(event)">Logout</li>
           </div>
         </ul>
       </nav>
@@ -43,6 +43,14 @@ const Nav = (() => {
     }
   }
 
+  function logout(event) {
+    event.preventDefault()
+    state.logInStatus = false
+    state.allFlashcards = []
+    state.flashcardsdue = []
+    axios.delete("api/sessions")
+    Nav.header()
+  }
 
   // Calls header function 
   header()
@@ -88,6 +96,7 @@ const Nav = (() => {
     displaySignup: displaySignup,
     displayLogin: displayLogin.apply,
     playFlashcards: playFlashcards,
+    logout: logout,
     header: header
   }
 

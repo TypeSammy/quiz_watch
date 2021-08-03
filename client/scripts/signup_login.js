@@ -102,7 +102,6 @@ function logInUser(event) {
 
 	axios.post("/api/sessions", data)
 		.then(successResponse => {
-      console.log(successResponse) // TEST
       state.logInStatus = true
       Nav.header()
       login.classList.toggle("hide")
