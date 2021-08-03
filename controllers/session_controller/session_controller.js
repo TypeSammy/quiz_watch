@@ -26,7 +26,11 @@ router.delete('/', (req, res) => {
 
 // only for testing
 router.get('/', (req,res) => {
-    res.json(req.session)
+if ( !req.session ) {
+    console.log("No one is logged in")
+    res.json({"message":"No one is logged in"})
+} else {
+    res.json(req.session) } 
 })
 
 module.exports = router
