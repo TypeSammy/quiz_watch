@@ -49,6 +49,7 @@ CREATE TRIGGER stockFlashcards
   EXECUTE PROCEDURE insertStockFlashcards();
 
 
+ -- COPY TO JUST ABOVE HERE!!!!!!
 
 -- NOTES:
 TRUNCATE TABLE table_name; --to delete the table data

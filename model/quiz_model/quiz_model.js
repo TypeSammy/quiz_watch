@@ -19,6 +19,7 @@ const Flashcards = {
     },
 // getting all the flashcards for the user
     flashcardsForUser(userId) {
+        console.log('flashcard for user')
         const sql = `
             SELECT * FROM flashcards WHERE user_id = $1
         `
