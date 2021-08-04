@@ -9,12 +9,14 @@ function flashcardDOM() {
 }
 
 function grabFlashcardsDue() {
+  console.log('TEST 1')
   return state.flashcardsdue
 }
 
 let currentCardIndex = null
 
 function start() {
+  console.log('TEST 2')
   let dom = flashcardDOM()
   // let flashcardsDue = grabFlashcardsDue()
   document.querySelector(".start-btn").style.display = "none"
@@ -28,11 +30,13 @@ function start() {
 }
 
 function nextQ() {
+  console.log('TEST 3')
   let flashcardsDue = grabFlashcardsDue()
   showCard(flashcardsDue[currentCardIndex])
 }
 
 function showCard(flashcardsDue) {
+  console.log('TEST 4')
   let dom = flashcardDOM()
   dom.displayQContainer.setAttribute("data-id", flashcardsDue.id)
   dom.question.innerText = flashcardsDue.question
@@ -41,6 +45,7 @@ function showCard(flashcardsDue) {
 }
 
 function showAnswer(flashcardsDue) {
+  console.log('TEST 5')
   let dom = flashcardDOM()
   dom.answer.style.display = "block"
   dom.reminderBtnContainer.style.display = "block"
@@ -52,6 +57,7 @@ function showAnswer(flashcardsDue) {
 }
 
 function difficulty(lvl) {
+  console.log('TEST 5')
   let dom = flashcardDOM()
   let cardId = dom.displayQContainer.getAttribute("data-id")
   // dom object for question page

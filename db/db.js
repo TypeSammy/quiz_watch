@@ -1,22 +1,17 @@
-const pg = require('pg')
+const { Pool } = require('pg')
 
-const db = new pg.Pool({
-  database: 'quiz_watch'
-})
-
-// // CONFIRM prior to deployment to heroku
-// let pool;
-// if (process.env.NODE_ENV === 'production') {
-//   pool = new Pool({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: {
-//       rejectUnauthorized: false
-//     }
-//   })
-// } else {
-//   pool = new Pool({
-//     database: 'quiz_watch'
-//   })
-// }
+let db;
+if (process.env.NODE_ENV === 'production') {
+  db = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  })
+} else {
+  db = new Pool({
+    database: 'flashcardsdb'
+  })
+}
 
 module.exports = db

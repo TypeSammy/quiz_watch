@@ -1,5 +1,5 @@
 // const categoryHeader = document.querySelector("#category-container")
-// // const answerDisplay = document.querySelector("#answer-display")
+// const answerDisplay = document.querySelector("#answer-display")
 // const questionDisplay = document.querySelector("#question-display")
 const createFlashcard = document.querySelector("#create-card")
 
