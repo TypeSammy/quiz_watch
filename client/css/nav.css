@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  background-color: #2E86C4;
+  background-color: rgb(25 126 197);
   color: white;
   padding: 0 2em;
 }

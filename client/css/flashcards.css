@@ -9,7 +9,7 @@
 }
 
 .header-left li.material-icons {
-  color: #F78066;
+  color: rgb(239 115 88);
   font-size: 1.3em;
   cursor: pointer;
   padding-left: 0.3em;
@@ -19,6 +19,7 @@
   font-size: 0.8em;
   cursor: pointer;
   margin-left: 3px;
+  font-weight: 600;
 }
 
 .category-container ul {
@@ -35,17 +36,22 @@
 }
 
 .question-display-container, .answer-display-container, .edit-flashcard-container, .create-flashcard-container {
+  font-family: 'Source Code Pro', monospace;
   width: 45%;
   height: 35vh;
-  background-color: white;
+  background-color: rgb(250 250 250);
   margin: 0 auto;
-  box-shadow: 0px 0px 1em rgb(0 0 0 / 10%);
+  box-shadow: 0px 0px 1em rgb(0 0 0 / 20%);
   border-radius: 4px;
   padding: 3em;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.difficult-txt {
+  font-family: 'Lato', sans-serif;
 }
 
 .question, .answer {
@@ -60,8 +66,12 @@
   cursor: pointer;
 }
 
+.hint-txt {
+  font-size: 0.8em; 
+}
+
 span.material-icons {
-  color: #F78066;
+  color: rgb(239 115 88);
   font-size: 1.6em;
   padding-right: 4px;
 }
@@ -80,7 +90,7 @@ span.material-icons {
 .reminder p {
   font-size: 0.8em;
   font-weight: 700;
-  color: #F78066;
+  color: rgb(239 115 88);
 }
 
 .reminder-btn {
@@ -98,7 +108,7 @@ label {
   float: left;
   font-size: 0.9em;
   font-weight: 700;
-  color: #F78066;
+  color: rgb(239 115 88);
 }
 
 .edit-flashcard-container, .create-flashcard-container {
@@ -135,7 +145,7 @@ label {
 }
 
 button.delete:hover {
-  background: rgb(118 118 118);
+  background: rgb(232 102 74);
 }
 
 .flashcards-link {
