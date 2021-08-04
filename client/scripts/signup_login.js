@@ -96,6 +96,7 @@ window.onclick = function(event) {
 }
 
 function logInUser(event) {
+  console.log('TEST login')
 	event.preventDefault()
 	const loginForm = event.target
 	const data = Object.fromEntries(new FormData(loginForm))
@@ -105,18 +106,22 @@ function logInUser(event) {
       state.logInStatus = true
       Nav.header() // => calling nav header so it generates a different nav bar
       login.classList.toggle("hide")
-      console.log(state.logInStatus)
+      console.log(state.logInStatus) // TEST
 		})
     .then(successResponse => {
+      console.log('TEST A')
       axios.get('/api/quiz')
       .then(response => {
+        console.log('TEST B')
         state.flashcardsdue = response.data
       })
     })
     .then(successResponse => {
+      console.log('TEST c')
       axios.get('/api/quiz/all')
       .then(response => {
         state.allFlashcards = response.data
+        console.log(state.allFlashcards) // TEST
         renderCategoryHeader()
         renderQuestion()
         renderCreateForm()
