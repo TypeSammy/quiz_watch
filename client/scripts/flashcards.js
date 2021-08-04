@@ -17,7 +17,7 @@ function getUserId() {
 getUserId()
 
 // 
-function reminderUpdate(difficulty){
+function reminderUpdate(difficulty, id){
   var updatedTime = moment().format(`YYYY-MM-DD HH:mm:ss`)
 
   if (difficulty == 'easy'){
