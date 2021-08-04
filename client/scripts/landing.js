@@ -41,13 +41,15 @@ const LandingPage = (() => {
       </section>
     `
   }
+  landingPage.classList.toggle("hide")
   renderLandingPage()
   function getStarted(event) {
     if (!(state.logInStatus)) {
       event.preventDefault()
       login.classList.toggle("hide")
     } else {
-      document.querySelector(".button").href = "/flashcards.html"
+      landingPage.classList.toggle("hide")
+      categoryHeader.classList.toggle("hide")
     }
   }
   return {

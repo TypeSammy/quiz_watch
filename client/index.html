@@ -19,11 +19,12 @@
   <script src="./scripts/initialise.js" defer></script>
   <script src="./scripts/header_nav.js" defer></script>
   <script src="./scripts/landing.js" defer></script>
-  <!-- <script src="./scripts/category.js" defer></script> -->
+  <script src="./scripts/category.js" defer></script>
   <script src="./scripts/signup_login.js" defer></script>
-  <!-- <script src="./scripts/flashcards_QnA.js" defer></script>
+  <script src="./scripts/flashcards_QnA.js" defer></script>
+  <script src="./scripts/flashcards_test.js" defer></script>
   <script src="./scripts/edit_flashcards.js" defer></script>
-  <script src="./scripts/edit_flashcard.js" defer></script> -->
+  <script src="./scripts/edit_flashcard.js" defer></script>
 </head>
 <body>
   <header id="header-nav" class="header-nav"></header>
@@ -34,12 +35,47 @@
   <main id="landing-page"></main>
   
 
-  <!-- <section id="category-container" class="category-container"></section>
-  <main id="question-display"></main>
-  <main id="answer-display" class="answer-display"></main>
+  <section id="category-container" class="category-container">
+    <!-- <ul class="category-header">
+      <div class="header-left">
+        <li><h2 class="flashcards-link" onClick="FlashcardsQA.returnFlashcads()">Flashcards</h2></li>
+        <li class="material-icons edit" onClick="FlashcardsQA.editCategory()">edit</li>
+        <li class="edit edit-txt" onClick="FlashcardsQA.editCategory()">Edit deck</li>
+        <li class="material-icons edit" onClick="FlashcardsQA.createCard(id)">add_circle</li>
+        <li class="edit edit-txt" onClick="FlashcardsQA.createCard(id)">Add card</li>
+      </div>
+      <li>1/10</li>
+    </ul> -->
+  </section>
+
+  <main id="question-display">
+
+    <!-- <section class="question-display-container">
+      <section class="display" id="flashcards">
+        <div class="question">Question</div>
+        <div class="answer">Answer</div>
+        <div class="hint">
+          <span class="material-icons">help</span>
+          <div class="hint-txt">HINT</div>
+        </div>
+        <button class="answer-btn" onClick="Render.showAnswer()">Answer</button>
+        <div class="reminder reminder-btn">
+          <p>How difficult did you find this question?</p>
+          <button onClick="Render.difficulty('easy')">Easy</button>
+          <button onClick="Render.difficulty('medium')">Medium</button>
+          <button onClick="Render.difficulty('hard')">Hard</button>
+        </div>
+      </section>
+      <button class="start-btn" onClick="Render.start()">Start</button>
+    </section> -->
+    
+  </main>
+
   <main id="create-card" class="create-card"></main>
   <main id="all-flashcards"></main>
-  <main id="flashcard"></main> -->
+  <main id="flashcard"></main>
+
+  
 
 </body>
 </html>

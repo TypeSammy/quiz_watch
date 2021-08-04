@@ -30,3 +30,11 @@ function isUserLoggedin() {
 
 isUserLoggedin()
 
+function getFlashcardsDue() {
+  axios.get('/api/quiz')
+    .then(response => {
+      state.flashcardsdue = response.data
+    })
+}
+
+getFlashcardsDue()

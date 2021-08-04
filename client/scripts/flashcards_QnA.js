@@ -1,35 +1,49 @@
 const categoryHeader = document.querySelector("#category-container")
-const answerDisplay = document.querySelector("#answer-display")
+// const answerDisplay = document.querySelector("#answer-display")
 const questionDisplay = document.querySelector("#question-display")
 const createFlashcard = document.querySelector("#create-card")
 
-const FlashcardsQA = (() => {
-  // function renderCategoryHeader() {
-  //   document.querySelector("#category-container").innerHTML = `
 
-  //   `
-  // }
-  // function question() {
-  //   document.querySelector("#question-display").innerHTML = `
+function renderCategoryHeader() {
+  document.querySelector("#category-container").innerHTML = `
+  <ul class="category-header">
+    <div class="header-left">
+      <li><h2 class="flashcards-link" onClick="FlashcardsQA.returnFlashcads()">Flashcards</h2></li>
+      <li class="material-icons edit" onClick="FlashcardsQA.editCategory()">edit</li>
+      <li class="edit edit-txt" onClick="FlashcardsQA.editCategory()">Edit deck</li>
+      <li class="material-icons edit" onClick="FlashcardsQA.createCard(id)">add_circle</li>
+      <li class="edit edit-txt" onClick="FlashcardsQA.createCard(id)">Add card</li>
+    </div>
+    <li>1/10</li>
+  </ul>
+  `
+}
 
-  //   `
-  // }
-  // TODO add hints
-  function answer() {
-    document.querySelector("#answer-display").innerHTML = `
-      <div class="question-display-container">
-        <p class="answer">Answer here</p>
-        <div class="reminder">
-          <p>How difficult did you find this question?</p>
-          <div class="reminder-btn">
-            <button onClick="FlashcardsQA.difficultyBtn('easy')">Easy</button>
-            <button onClick="FlashcardsQA.difficultyBtn('medium')">Medium</button>
-            <button onClick="FlashcardsQA.difficultyBtn('hard')">Hard</button>
-          </div>
-        </div>
+function renderQuestion() {
+  document.querySelector("#question-display").innerHTML = `
+  <section class="question-display-container">
+    <section class="display" id="flashcards">
+      <div id="question" class="question">Question</div>
+      <div id="answer" class="answer">Answer</div>
+      <div id="hint" class="hint">
+        <span class="material-icons">help</span>
+        <div class="hint-txt">HINT</div>
       </div>
-    `
-  }
+      <button id="answer-btn" class="answer-btn" onClick="showAnswer()">Answer</button>
+      <div id="reminder-container" class="reminder reminder-btn">
+        <p>How difficult did you find this question?</p>
+        <button onClick="difficulty('easy')">Easy</button>
+        <button onClick="difficulty('medium')">Medium</button>
+        <button onClick="difficulty('hard')">Hard</button>
+      </div>
+    </section>
+    <button class="start-btn" onClick="start()">Start</button>
+  </section>
+  `
+}
+  
+
+  // TODO add hints
   function create() {
     document.querySelector("#create-card").innerHTML = `
         <div class="create-flashcard-container">
@@ -51,30 +65,18 @@ const FlashcardsQA = (() => {
         </div>
     `
   }
-
-  // renderCategoryHeader() 
   // question()
-  answer()
-  create()
-  answerDisplay.classList.toggle("hide")
-  createFlashcard.classList.toggle("hide")
+  // answer()
+  // create()
+  // categoryHeader.classList.toggle("hide")
+  // answerDisplay.classList.toggle("hide")
+  // createFlashcard.classList.toggle("hide")
+  // questionDisplay.classList.toggle("hide")
 
-  function answerBtn() {
-    questionDisplay.classList.toggle("hide")
-    answerDisplay.classList.toggle("hide")
-  }
-
-  function difficultyBtn(input) {
-    if (input === "easy") {
-      console.log('execute time function for easy')
-    } else if (input === "medium") {
-      console.log('execute time function for medium')
-    } else if (input === "hard") {
-      console.log('execute time function for hard')
-    }
-    questionDisplay.classList.toggle("hide")
-    answerDisplay.classList.toggle("hide")
-  }
+  // function answerBtn() {
+  //   questionDisplay.classList.toggle("hide")
+  //   answerDisplay.classList.toggle("hide")
+  // }
 
   function createCard(event) {
     event.preventDefault();
@@ -124,39 +126,3 @@ const FlashcardsQA = (() => {
   function returnFlashcads() {
     Nav.playFlashcards()
   }
-
-  return { // this returns all functions so the onClick event listener can work
-    answerBtn: answerBtn,
-    difficultyBtn: difficultyBtn,
-    createCard: createCard,
-    editCategory: editCategory,
-    createCard: createCard,
-    returnFlashcads: returnFlashcads
-  }
-
-  
-
-})()
-
-function renderFlashcards() {
-  document.querySelector("#question-display").innerHTML = 
-    `
-      <section class=“question-display-container”>
-      ${flashcards()}
-      </section>
-    `
-}
-
-function flashcards() {
-  return state.flashcardsdue.map(flashcard => {
-    `
-      <div class="question">${flashcard.question}</div>
-      <div class="hint">
-        <span class="material-icons">help</span><div class="hint">${flashcard.hint}</div>
-      </div>
-      <button onClick="FlashcardsQA.answerBtn()">${flashcard.answer}</button>
-    `
-  }).join("")
-}
-
-renderFlashcards()
