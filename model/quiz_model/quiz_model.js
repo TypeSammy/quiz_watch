@@ -5,10 +5,11 @@ const session = require('express-session');
 const db = require('../../db/db');
 
 const Flashcards = {
+    // Creating new flashcards after the user has logged in
     create(userId, category, question, hint, answer) {
         const sql = `
-            INSERT INTO flashcards(user_id, category, question, hint, name)
-            VALUES($1, $2, $3, $4, $5)
+            INSERT INTO flashcards(user_id, category, question, hint, answer, reminder)
+            VALUES($1, $2, $3, $4, $5, now())
             RETURNING *
         `
         return db.query(sql, [userId, category, question, hint, answer])
@@ -16,7 +17,7 @@ const Flashcards = {
                 return dbResponse.rows[0]
             })
     },
-
+// getting all the flashcards for the user
     flashcardsForUser(userId) {
         const sql = `
             SELECT * FROM flashcards WHERE user_id = $1
@@ -26,7 +27,7 @@ const Flashcards = {
                 return dbResponse.rows
             })
     }, 
-
+// getting only the due flashcards for the user
     flashcardsDue(userId) {
         const sql = `
             SELECT * FROM flashcards WHERE user_id = $1 and reminder < now()
@@ -36,12 +37,22 @@ const Flashcards = {
                 return dbResponse.rows
             })
     }, 
-
+// updating flashcard to a new reminder
     updateFlashcardReminder(timestamp, id) {
         const sql = `
             UPDATE flashcards SET reminder =  (to_timestamp($1,'YYYY-MM-DD hh24:MI:SS')) WHERE id = $2;
         `
         return db.query(sql, [timestamp, id ])
+            .then(dbResponse => {
+                return dbResponse.rows
+            })
+    },
+// Deleting flashcard
+    flashcardsDelete (flashcardId) {
+        const sql = `
+            DELETE FROM  flashcards WHERE id = $1
+        `
+        return db.query(sql, [flashcardId])
             .then(dbResponse => {
                 return dbResponse.rows
             })

@@ -4,7 +4,8 @@ function flashcardDOM() {
   const answerBtn = document.querySelector("#answer-btn")
   const reminderBtnContainer = document.querySelector(".reminder-btn")
   const hint = document.querySelector(".hint")
-  return {question, answer, answerBtn, reminderBtnContainer, hint}
+  const displayQContainer = document.querySelector('.question-display-container')
+  return {question, answer, answerBtn, reminderBtnContainer, hint, displayQContainer}
 }
 
 function grabFlashcardsDue() {
@@ -15,7 +16,7 @@ let currentCardIndex = null
 
 function start() {
   let dom = flashcardDOM()
-  let flashcardsDue = grabFlashcardsDue()
+  // let flashcardsDue = grabFlashcardsDue()
   document.querySelector(".start-btn").style.display = "none"
   currentCardIndex = 0
   // document.querySelector("#flashcards").style.transform = "none"
@@ -26,7 +27,6 @@ function start() {
   nextQ()
 }
 
-
 function nextQ() {
   let flashcardsDue = grabFlashcardsDue()
   showCard(flashcardsDue[currentCardIndex])
@@ -34,6 +34,7 @@ function nextQ() {
 
 function showCard(flashcardsDue) {
   let dom = flashcardDOM()
+  dom.displayQContainer.setAttribute("data-id", flashcardsDue.id)
   dom.question.innerText = flashcardsDue.question
   dom.answer.innerText = flashcardsDue.answer
   dom.answer.style.display = "none"
@@ -47,10 +48,12 @@ function showAnswer(flashcardsDue) {
   dom.answerBtn.style.display = "none"
   dom.question.style.display = "none"
   dom.hint.style.display = "none"
+
 }
 
 function difficulty(lvl) {
   let dom = flashcardDOM()
+  let cardId = dom.displayQContainer.getAttribute("data-id")
   // dom object for question page
   dom.answerBtn.style.display = "block"
   dom.question.style.display = "block"
@@ -61,6 +64,7 @@ function difficulty(lvl) {
   dom.reminderBtnContainer.style.display = "none"
 
   // changes the index to cycle through array
+  reminderUpdate(lvl, cardId)
   currentCardIndex+=1
   nextQ()
 }
