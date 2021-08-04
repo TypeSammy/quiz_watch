@@ -1,19 +1,15 @@
-const pg = require('pg')
+const { Pool } = require('pg')
 
-// const db = new pg.Pool({
-//   database: 'flashcardsdb'
-// })
-
-let pool;
+let db;
 if (process.env.NODE_ENV === 'production') {
-  pool = new Pool({
+  db = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
   })
 } else {
-  pool = new pg.Pool({
+  db = new Pool({
     database: 'flashcardsdb'
   })
 }
