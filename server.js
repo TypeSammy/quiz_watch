@@ -26,7 +26,7 @@ const sessionConfig = {
 
 if(process.env.NODE_ENV === 'production'){
     sessionConfig.cookie.secure = true;
-    // app.set('trust proxy', 1); // not sure if strictly required- check with Alex/Kasun
+    app.set('trust proxy', 1);
 }
 
 // Logger for Terminal
