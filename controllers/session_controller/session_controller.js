@@ -10,6 +10,7 @@ router.post('/', (req, res) => {
         .then(user => {
             if (bcrypt.compareSync(req.body.password, user.password_digest)) {
                 req.session.userId = user.id
+                console.log(req.session.userId)
                 res.json({"message":"Login Successful"})
             } else {
                 res.status(401).json({error: "No such user found"})

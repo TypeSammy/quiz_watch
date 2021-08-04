@@ -4,6 +4,7 @@ const Flashcards = require("../../model/quiz_model/quiz_model")
 
 // getting flashcards for the user
 router.get('/', (req,res) => {
+  console.log(req.session.userId) // TEST
   Flashcards
     .flashcardsDue(req.session.userId)
     .then(quiz => res.json(quiz))

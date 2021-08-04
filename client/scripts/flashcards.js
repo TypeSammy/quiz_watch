@@ -54,5 +54,5 @@ function reminderUpdate(difficulty, id){
   } else if(difficulty == 'hard'){
     var updatedTime = moment().add(1, 'm').format(`YYYY-MM-DD HH:mm:ss`)
   } 
-  axios.patch('/api/quizz',updatedTime)
+  axios.patch('/api/quiz',updatedTime, id)
 }
