@@ -113,6 +113,7 @@ function logInUser(event) {
       axios.get('/api/quiz')
       .then(response => {
         console.log('TEST B')
+        console.log(`RESPONSE DATA api/quiz : ${response.data}`)
         state.flashcardsdue = response.data
       })
     })
@@ -120,6 +121,7 @@ function logInUser(event) {
       console.log('TEST c')
       axios.get('/api/quiz/all')
       .then(response => {
+        console.log(`RESPONSE DATA quiz/all : ${response.data}`)
         state.allFlashcards = response.data
         console.log(state.allFlashcards) // TEST
         renderCategoryHeader()
