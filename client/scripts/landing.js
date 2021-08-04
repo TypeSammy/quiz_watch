@@ -41,15 +41,15 @@ const LandingPage = (() => {
       </section>
     `
   }
-  landingPage.classList.toggle("hide")
   renderLandingPage()
   function getStarted(event) {
     if (!(state.logInStatus)) {
       event.preventDefault()
       login.classList.toggle("hide")
     } else {
-      landingPage.classList.toggle("hide")
-      categoryHeader.classList.toggle("hide")
+      Toggle.landing()
+      Toggle.categoryHeader()
+      Toggle.questionDisplay()
     }
   }
   return {

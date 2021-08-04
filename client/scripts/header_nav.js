@@ -3,11 +3,11 @@ const Nav = (() => {
     if (state.logInStatus) {
       document.querySelector("#header-nav").innerHTML = `
         <nav>
-        <a href="/"><h3>Quiz Watch</h3></a>
+        <a onClick="Toggle.landing(); Toggle.categoryHeader(); Toggle.questionDisplay()"><h3>Quiz Watch</h3></a>
         <ul>
           <div>
-            <li class="material-icons flashcards" onClick="Render.categoryHeader(); Render.question()">view_carousel</li>
-            <li class="nav-text" onClick="Render.categoryHeader(); Render.question()">Flashcards</li>
+            <li class="material-icons flashcards" onClick="Toggle.landing(); Toggle.categoryHeader(); Toggle.questionDisplay()">view_carousel</li>
+            <li class="nav-text" onClick="Toggle.landing(); Toggle.categoryHeader(); Toggle.questionDisplay()">Flashcards</li>
           </div>
           <div>
             <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
