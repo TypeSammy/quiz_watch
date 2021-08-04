@@ -1,21 +1,3 @@
-// initialize
-
-// const state = {
-//   currentUser: null,
-  
-// }
-
-function getUserId() {
-  axios
-  // for finding the user id
-  .get('/api/user')
-  .then(sessionInfo => {
-    state.currentUser = sessionInfo.Id;
-  })
-}
-
-getUserId()
-
 // 
 function reminderUpdate(difficulty){
   var updatedTime = moment().format(`YYYY-MM-DD HH:mm:ss`)
@@ -27,19 +9,5 @@ function reminderUpdate(difficulty){
   } else if(difficulty == 'hard'){
     var updatedTime = moment().add(1, 'm').format(`YYYY-MM-DD HH:mm:ss`)
   } 
-
-  axios
-  // current pathway set to /api/flashcard -> update
-  // not sure how to use sessions for user_id
-
-    .post('/api/flashcards',state.currentUser, updatedTime)
-    .then(() => {
-      // update window with where the flash card is being displayed
-      window.location.reload()
-    })
-}
-
-function getFlashcard(){
-  axios.get('api/flashcards', state.currentUser)
-
+  axios.patch('/api/quizz',updatedTime)
 }
