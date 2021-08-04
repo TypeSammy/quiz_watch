@@ -45,7 +45,7 @@ app.use('/api/sessions', sessionsController)
 app.use('/api/quiz', quizController)
 
 // For heroku deployment
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // TESTING - not needed once deployed
 app.listen(port , () => {
