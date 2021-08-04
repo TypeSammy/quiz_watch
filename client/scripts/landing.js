@@ -41,7 +41,9 @@ const LandingPage = (() => {
       </section>
     `
   }
+
   renderLandingPage()
+  
   function getStarted(event) {
     if (!(state.logInStatus)) {
       event.preventDefault()

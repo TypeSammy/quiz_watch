@@ -3,7 +3,6 @@
 // const questionDisplay = document.querySelector("#question-display")
 const createFlashcard = document.querySelector("#create-card")
 
-
 function renderCategoryHeader() {
   document.querySelector("#category-container").innerHTML = `
   <ul class="category-header">
@@ -42,29 +41,29 @@ function renderQuestion() {
   `
 }
   
-
   // TODO add hints
-  function renderCreateForm() {
-    document.querySelector("#create-card").innerHTML = `
-        <div class="create-flashcard-container">
-          <form id="create-flashcard-form" action="/" method="POST" onSubmit="FlashcardsQA.createCard(event)">
-            <fieldset>
-              <label for="question">Question:</label><br>
-              <textarea name="question" cols="20" rows="5"></textarea>
-            </fieldset>
-            <fieldset>
-              <label for="question">Hint:</label><br>
-              <textarea name="hint" cols="20" rows="5"></textarea>
-            </fieldset>
-            <fieldset>
-              <label for="question">Answer:</label><br>
-              <textarea name="answer" cols="20" rows="5"></textarea>
-            </fieldset>
-            <button>Add</button>
-          </form>
-        </div>
-    `
-  }
+function renderCreateForm() {
+  document.querySelector("#create-card").innerHTML = `
+      <div class="create-flashcard-container">
+        <form id="create-flashcard-form" action="/" method="POST" onSubmit="FlashcardsQA.createCard(event)">
+          <fieldset>
+            <label for="question">Question:</label><br>
+            <textarea name="question" cols="20" rows="5"></textarea>
+          </fieldset>
+          <fieldset>
+            <label for="question">Hint:</label><br>
+            <textarea name="hint" cols="20" rows="5"></textarea>
+          </fieldset>
+          <fieldset>
+            <label for="question">Answer:</label><br>
+            <textarea name="answer" cols="20" rows="5"></textarea>
+          </fieldset>
+          <button>Add</button>
+        </form>
+      </div>
+  `
+}
+
   // question()
   // answer()
   // create()
@@ -78,51 +77,52 @@ function renderQuestion() {
   //   answerDisplay.classList.toggle("hide")
   // }
 
-  function createCard(event) {
-    event.preventDefault();
-    // const newFlashcardForm = event.target
-    // const data = Object.fromEntries(new FormData(newFlashcardForm));
+function createCard(event) {
+  event.preventDefault();
+  // const newFlashcardForm = event.target
+  // const data = Object.fromEntries(new FormData(newFlashcardForm));
 
-    // axios.post(/* TODO */, data)
-    // .then(successResponse => {
-    //   // TODO
-    // })
-    // .catch(errorResponse => {
-    //   console.log(errorResponse);
-    //   document.querySelector('#errors')
-    //     .innerHTML = errorResponse.response.data.message;
-    // });
-  }
+  // axios.post(/* TODO */, data)
+  // .then(successResponse => {
+  //   // TODO
+  // })
+  // .catch(errorResponse => {
+  //   console.log(errorResponse);
+  //   document.querySelector('#errors')
+  //     .innerHTML = errorResponse.response.data.message;
+  // });
+}
 
-  function editCategory() {
-    if (allFlashcards.classList.contains("hide")) {
-      if (!(answerDisplay.classList.contains("hide"))) {
-        answerDisplay.classList.toggle("hide")
-      } else if (!(questionDisplay.classList.contains("hide"))) {
-        questionDisplay.classList.toggle("hide")
-      } else if (!(createFlashcard.classList.contains("hide"))) {
-        createFlashcard.classList.toggle("hide")
-      } else if (!(editFlashcard.classList.contains("hide"))) {
-        editFlashcard.classList.toggle("hide")
-      }
-      allFlashcards.classList.toggle("hide")
-    }
-  }
-
-  function createCard(id) {
-    if (createFlashcard.classList.contains("hide")) {
-      if (!(answerDisplay.classList.contains("hide"))) {
-        answerDisplay.classList.toggle("hide")
-      } else if (!(questionDisplay.classList.contains("hide"))) {
-        questionDisplay.classList.toggle("hide")
-      } else if (!(allFlashcards.classList.contains("hide"))) {
-        allFlashcards.classList.toggle("hide")
-      } else if (!(editFlashcard.classList.contains("hide"))) {
-        editFlashcard.classList.toggle("hide")
-      }
+function editCategory() {
+  if (allFlashcards.classList.contains("hide")) {
+    if (!(answerDisplay.classList.contains("hide"))) {
+      answerDisplay.classList.toggle("hide")
+    } else if (!(questionDisplay.classList.contains("hide"))) {
+      questionDisplay.classList.toggle("hide")
+    } else if (!(createFlashcard.classList.contains("hide"))) {
       createFlashcard.classList.toggle("hide")
+    } else if (!(editFlashcard.classList.contains("hide"))) {
+      editFlashcard.classList.toggle("hide")
     }
+    allFlashcards.classList.toggle("hide")
   }
-  function returnFlashcads() {
-    Nav.playFlashcards()
+}
+
+function createCard(id) {
+  if (createFlashcard.classList.contains("hide")) {
+    if (!(answerDisplay.classList.contains("hide"))) {
+      answerDisplay.classList.toggle("hide")
+    } else if (!(questionDisplay.classList.contains("hide"))) {
+      questionDisplay.classList.toggle("hide")
+    } else if (!(allFlashcards.classList.contains("hide"))) {
+      allFlashcards.classList.toggle("hide")
+    } else if (!(editFlashcard.classList.contains("hide"))) {
+      editFlashcard.classList.toggle("hide")
+    }
+    createFlashcard.classList.toggle("hide")
   }
+}
+
+function returnFlashcads() {
+  Nav.playFlashcards()
+}

@@ -4,7 +4,6 @@ const Flashcards = require("../../model/quiz_model/quiz_model")
 
 // router.get('/', (req,res) =>{
 //   Flashcard.flashcardsForUser(req.session.userId)
-
 // })
 
 router.get('/', (req,res) => {
