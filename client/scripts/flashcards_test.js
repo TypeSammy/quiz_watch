@@ -9,6 +9,7 @@ function flashcardDOM() {
 }
 
 function grabFlashcardsDue() {
+  console.log('hello')
   return state.flashcardsdue
 }
 
