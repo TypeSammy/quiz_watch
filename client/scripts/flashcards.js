@@ -1,9 +1,9 @@
 // initialize
 
-const state = {
-  currentUser: null,
+// const state = {
+//   currentUser: null,
   
-}
+// }
 
 function getUserId() {
   axios

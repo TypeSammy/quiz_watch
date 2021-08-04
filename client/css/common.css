@@ -67,3 +67,28 @@ h3 {
   font-weight: 600;
   color: rgb(247 128 102);
 }
+
+#flashcards {
+  /* transform: scale(0); */
+}
+
+#answer {
+  display: none;
+}
+#reminder-container {
+  display: none;
+}
+
+#question {
+  display: none;
+}
+#hint {
+  display: none;
+}
+#answer-btn {
+  display: none;
+}
+
+.start-btn {
+  display: block;
+}

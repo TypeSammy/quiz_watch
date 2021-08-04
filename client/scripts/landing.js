@@ -47,7 +47,9 @@ const LandingPage = (() => {
       event.preventDefault()
       login.classList.toggle("hide")
     } else {
-      document.querySelector(".button").href = "/flashcards.html"
+      Toggle.landing()
+      Toggle.categoryHeader()
+      Toggle.questionDisplay()
     }
   }
   return {

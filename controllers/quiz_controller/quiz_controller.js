@@ -8,13 +8,15 @@ const Flashcards = require("../../model/quiz_model/quiz_model")
 // })
 
 router.get('/', (req,res) => {
-  Flashcards.flashcardsDue(req.session.userId)
-  .then(quiz => res.json(quiz))
+  Flashcards
+    .flashcardsDue(req.session.userId)
+    .then(quiz => res.json(quiz))
 })
 
 router.get('/all', (req,res) => {
-  Flashcards.flashcardsForUser(req.session.userId)
-  .then(quiz => res.json(quiz))
+  Flashcards
+    .flashcardsForUser(req.session.userId)
+    .then(quiz => res.json(quiz))
 })
 
 // router.patch('/', (req,res) => {

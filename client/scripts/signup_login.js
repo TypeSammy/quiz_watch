@@ -103,7 +103,7 @@ function logInUser(event) {
 	axios.post("/api/sessions", data)
 		.then(successResponse => {
       state.logInStatus = true
-      Nav.header()
+      Nav.header() // => calling nav header so it generates a different nav bar
       login.classList.toggle("hide")
       console.log(state.logInStatus)
 		})
@@ -117,6 +117,18 @@ function logInUser(event) {
       axios.get('/api/quiz/all')
       .then(response => {
         state.allFlashcards = response.data
+        renderCategoryHeader()
+        renderQuestion()
+        renderCreateForm()
+        Toggle.categoryHeader()
+        Toggle.questionDisplay()
+        Toggle.createForm()
+        renderAllFlashcards()
+        renderFlashcard()
+        flashcardDOM()
+        Toggle.editAllFlashcards()
+        Toggle.editFlashcard()
+        grabFlashcardsDue()
       })
     })
 		.catch(errorResponse => {

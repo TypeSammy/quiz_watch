@@ -3,11 +3,11 @@ const Nav = (() => {
     if (state.logInStatus) {
       document.querySelector("#header-nav").innerHTML = `
         <nav>
-        <a href="/"><h3>Quiz Watch</h3></a>
+        <a onClick="Toggle.landing(); Toggle.categoryHeader(); Toggle.questionDisplay()"><h3>Quiz Watch</h3></a>
         <ul>
           <div>
-            <li class="material-icons flashcards"><a href="/flashcards.html">view_carousel</a></li>
-            <li class="nav-text"> <a href="/flashcards.html">Flashcards</a></li>
+            <li class="material-icons flashcards" onClick="Toggle.landing(); Toggle.categoryHeader(); Toggle.questionDisplay()">view_carousel</li>
+            <li class="nav-text" onClick="Toggle.landing(); Toggle.categoryHeader(); Toggle.questionDisplay()">Flashcards</li>
           </div>
           <div>
             <li class="material-icons notifications" onClick="render('Nav.notifications')">circle_notifications</li>
@@ -76,7 +76,7 @@ const Nav = (() => {
     login.classList.toggle("hide")
   }
 
-  function playFlashcards() {
+  function flashcards() {
     if (questionDisplay.classList.contains("hide") && answerDisplay.classList.contains("hide")) {
       if (categoryHeader.classList.contains("hide")) {
         categoryHeader.classList.toggle("hide")
@@ -94,8 +94,8 @@ const Nav = (() => {
   return {
     render: render,
     displaySignup: displaySignup,
-    displayLogin: displayLogin.apply,
-    playFlashcards: playFlashcards,
+    displayLogin: displayLogin,
+    flashcards: flashcards,
     logout: logout,
     header: header
   }
