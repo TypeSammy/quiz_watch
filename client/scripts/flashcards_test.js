@@ -9,8 +9,7 @@ function flashcardDOM() {
 }
 
 function grabFlashcardsDue() {
- return state.flashcardsdue
-
+  return state.flashcardsdue
 }
 
 let currentCardIndex = null
