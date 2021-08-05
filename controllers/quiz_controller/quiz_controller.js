@@ -17,9 +17,14 @@ router.get('/all', (req,res) => {
 })
 
 
-// updating flashcards
+// updating flashcards reminder
 router.patch('/', (req, res) => {
   Flashcards.updateFlashcardReminder(req.body.timestamp, req.body.id)
+  res.json({})
+})
+// editing a flashcard
+router.patch('/edit', (req,res) => {
+  Flashcards.updateFlashcardForm(req.body.question, req.body.hint, req.body.answer, req.body.id)
   res.json({})
 })
 

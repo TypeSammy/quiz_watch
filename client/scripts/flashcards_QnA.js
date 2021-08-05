@@ -46,17 +46,17 @@ function renderQuestion() {
 function renderCreateForm() {
   document.querySelector("#create-card").innerHTML = `
       <div class="create-flashcard-container">
-        <form id="create-flashcard-form" action="/" method="POST" onSubmit="FlashcardsQA.createCard(event)">
+        <form id="create-flashcard-form" action="/" method="POST" onSubmit="creatingCard(event)">
           <fieldset>
             <label for="question">Question:</label><br>
             <textarea name="question" cols="20" rows="5"></textarea>
           </fieldset>
           <fieldset>
-            <label for="question">Hint:</label><br>
+            <label for="hint">Hint:</label><br>
             <textarea name="hint" cols="20" rows="5"></textarea>
           </fieldset>
           <fieldset>
-            <label for="question">Answer:</label><br>
+            <label for="answer">Answer:</label><br>
             <textarea name="answer" cols="20" rows="5"></textarea>
           </fieldset>
           <button>Add</button>
@@ -78,12 +78,15 @@ function renderCreateForm() {
   //   answerDisplay.classList.toggle("hide")
   // }
 
-function createCard(event) {
+function creatingCard(event) {
   event.preventDefault();
-  // const newFlashcardForm = event.target
-  // const data = Object.fromEntries(new FormData(newFlashcardForm));
-
-  // axios.post(/* TODO */, data)
+  const newFlashcardForm = event.target
+  const data = Object.fromEntries(new FormData(newFlashcardForm));
+  
+  axios.post("/api/quiz", data)
+    // .then(successResponse => {
+    //   window.location = "/"
+    // })
   // .then(successResponse => {
   //   // TODO
   // })

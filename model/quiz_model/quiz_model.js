@@ -48,6 +48,17 @@ const Flashcards = {
                 return dbResponse.rows
             })
     },
+// edit flashcards
+    updateFlashcardForm(question, hint, answer, id) {
+        const sql = `
+            UPDATE flashcards SET question = $1, hint = $2, answer = $3 WHERE id = $4;
+        `
+        return db.query(sql, [question, hint, answer , id ])
+            .then(dbResponse => {
+                return dbResponse.rows
+            })
+    },
+
 // Deleting flashcard
     flashcardsDelete (flashcardId) {
         const sql = `
