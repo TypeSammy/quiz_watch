@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   grid-template-rows: 452px;
-  background-color: rgb(207 222 234);
+  background-color: rgb(185 210 231);
   height: 456px;
   padding: 0;
   align-items: center;
@@ -63,7 +63,7 @@ h2 {
 
 .material-icons.check_circle {
   font-size: 2.5em;
-  color: #F78066;
+  color: rgb(239 115 88);
 }
 
 .second-strip li {

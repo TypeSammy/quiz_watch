@@ -24,13 +24,14 @@ function renderQuestion() {
     <section class="display" id="flashcards">
       <div id="question" class="question">Question</div>
       <div id="answer" class="answer">Answer</div>
+      <div id="finished" class="finished">You're done! :)</div>
       <div id="hint" class="hint">
-        <span class="material-icons">help</span>
-        <div class="hint-txt">HINT</div>
+        <span class="material-icons" onmousedown="showHint()" onmouseup="hideHint()">help</span>
+        <div class="hint-txt" onmousedown="showHint()" onmouseup="hideHint()">HINT</div>
       </div>
       <button id="answer-btn" class="answer-btn" onClick="showAnswer()">Answer</button>
       <div id="reminder-container" class="reminder reminder-btn">
-        <p>How difficult did you find this question?</p>
+        <p class="difficult-txt">How difficult did you find this question?</p>
         <button onClick="difficulty('easy')">Easy</button>
         <button onClick="difficulty('medium')">Medium</button>
         <button onClick="difficulty('hard')">Hard</button>

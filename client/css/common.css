@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   margin: 0;
-  color: #2E86C4;
-  background-color: rgb(250, 250, 250);
+  color: rgb(22 119 187);
+  background-color: rgb(238 238 238);
+  margin-bottom: 80px;
 }
 
 .header-nav {
@@ -17,14 +19,15 @@ body {
 
 button, .button {
   border: none;
-  background: #F78066;
+  background: rgb(239 115 88);
   color: rgb(255 255 255);
   padding: 1em;
   border-radius: 4px;
 }
 
 button:hover, .button:hover {
-  background: #eb755a;
+  background: rgb(232 102 74);
+  /* update above */
 }
 
 fieldset {
@@ -42,7 +45,7 @@ input {
   box-sizing:border-box
 }
 ::placeholder {
-  color: #2E86C4;
+  color: rgb(25 126 197);
 }
 
 .hide {
@@ -91,4 +94,12 @@ h3 {
 
 .start-btn {
   display: block;
+}
+
+#finished {
+  display: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 3em;
+  color: rgb(213 213 213);
 }
