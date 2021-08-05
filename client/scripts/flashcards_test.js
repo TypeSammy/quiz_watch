@@ -92,10 +92,15 @@ function addMinutes(date, minutes) {
   currentCardIndex+=1
   nextQ()
 }
-
+// making new flashcard
 function createNewFlashcard(question, hint, answer){
   // need to grab the data from the user submitted form
   axios.post('/api/quiz',{question: question, hint: hint, answer: answer} )
+}
+
+// editing new flashcard
+function editFlashcard(question, hint, answer, id){
+  axios.post('/api/quiz/edit',{question: question, hint: hint, answer: answer, id:id} )
 }
 
 const fakeQuestions = [
