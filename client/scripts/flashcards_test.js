@@ -99,7 +99,7 @@ function createNewFlashcard(question, hint, answer){
 }
 
 // editing new flashcard
-function editFlashcard(question, hint, answer, id){
+function editingFlashcard(question, hint, answer, id){
   axios.post('/api/quiz/edit',{question: question, hint: hint, answer: answer, id:id} )
 }
 
