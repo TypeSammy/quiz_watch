@@ -102,8 +102,8 @@ function addMinutes(date, minutes) {
 
   axios.patch('/api/quiz',{timestamp: reminder, id: cardId} )
    // changes the index to cycle through array
-  currentCardIndex+=1
-  nextQ()
+  // currentCardIndex+=1
+  // nextQ()
   
 // OPTION B
   // changes the index to cycle through array

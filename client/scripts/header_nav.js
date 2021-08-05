@@ -49,7 +49,8 @@ const Nav = (() => {
     state.allFlashcards = []
     state.flashcardsdue = []
     axios.delete("api/sessions")
-    Nav.header()
+    // Nav.header()
+    window.location.reload()
   }
 
   // Calls header function 
