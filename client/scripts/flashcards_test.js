@@ -4,8 +4,10 @@ function flashcardDOM() {
   const answerBtn = document.querySelector("#answer-btn")
   const reminderBtnContainer = document.querySelector(".reminder-btn")
   const hint = document.querySelector(".hint")
+  const hintTxt = document.querySelector(".hint-txt")
   const displayQContainer = document.querySelector('.question-display-container')
-  return {question, answer, answerBtn, reminderBtnContainer, hint, displayQContainer}
+  const finish = document.querySelector('#finished')
+  return {question, answer, answerBtn, reminderBtnContainer, hint, hintTxt, displayQContainer, finish}
 }
 
 function grabFlashcardsDue() {
@@ -41,10 +43,12 @@ function showCard(flashcardsDue) {
   dom.displayQContainer.setAttribute("data-id", flashcardsDue.id)
   dom.question.innerText = flashcardsDue.question
   dom.answer.innerText = flashcardsDue.answer
+  dom.hintTxt.innerText = flashcardsDue.hint
   dom.answer.style.display = "none"
+  dom.hintTxt.style.display = "none"
 }
 
-function showAnswer(flashcardsDue) {
+function showAnswer() {
   console.log('TEST 5')
   let dom = flashcardDOM()
   dom.answer.style.display = "block"
@@ -53,12 +57,20 @@ function showAnswer(flashcardsDue) {
   dom.answerBtn.style.display = "none"
   dom.question.style.display = "none"
   dom.hint.style.display = "none"
-
+}
+function showHint() {
+  let dom = flashcardDOM()
+  dom.hintTxt.style.display = "block"
+}
+function hideHint() {
+  let dom = flashcardDOM()
+  dom.hintTxt.style.display = "none"
 }
 
 function difficulty(lvl) {
   console.log('TEST 5')
   let dom = flashcardDOM()
+  let flashcardsDue = grabFlashcardsDue()
   let cardId = dom.displayQContainer.getAttribute("data-id")
   // dom object for question page
   dom.answerBtn.style.display = "block"
@@ -70,9 +82,16 @@ function difficulty(lvl) {
   dom.reminderBtnContainer.style.display = "none"
 
   // changes the index to cycle through array
-  reminderUpdate(lvl, cardId)
-  currentCardIndex+=1
-  nextQ()
+  // reminderUpdate(lvl, cardId)
+  if (currentCardIndex === flashcardsDue.length-1) {
+    dom.finish.style.display = "block"
+    dom.answerBtn.style.display = "none"
+    dom.question.style.display = "none"
+    dom.hint.style.display = "none"
+  } else {
+    currentCardIndex+=1
+    nextQ()
+  }
 }
 
 const fakeQuestions = [
