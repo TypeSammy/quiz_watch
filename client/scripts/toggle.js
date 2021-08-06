@@ -19,8 +19,10 @@ const Toggle = (() => {
     const createForm = document.querySelector("#create-card")
     const allFlashcards = document.querySelector("#all-flashcards")
     const flashcard = document.querySelector("#flashcard")
+    const cardCreatedMshh = document.querySelector("#card-created")
 
     if (createForm.classList.contains("hide")) {
+      // if (cardCreatedMshh.clas)
       if (!questionDisplay.classList.contains("hide")) {
         questionDisplay.classList.toggle("hide")
       } else if (!allFlashcards.classList.contains("hide")) {
