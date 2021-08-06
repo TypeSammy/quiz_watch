@@ -36,9 +36,9 @@ router.post('/', (req,res) => {
 })
 
 // Deleting flashcard
-router.delete('/', (req,res) => {
+router.delete('/delete', (req,res) => {
   Flashcards.flashcardsDelete(req.body.id)
-  res.json({})
+  .then(() => res.json({}))
 })
 
 

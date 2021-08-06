@@ -62,7 +62,7 @@ const Flashcards = {
 // Deleting flashcard
     flashcardsDelete (flashcardId) {
         const sql = `
-            DELETE FROM  flashcards WHERE id = $1
+            DELETE FROM flashcards WHERE id = $1
         `
         return db.query(sql, [flashcardId])
             .then(dbResponse => {

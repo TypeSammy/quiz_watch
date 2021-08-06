@@ -50,6 +50,12 @@ const Toggle = (() => {
     }
   }
 
+  function editAllFlashcardsOff() {
+    const allFlashcards = document.querySelector("#all-flashcards")
+    allFlashcards.classList.toggle("hide")
+  
+  }
+
   function editFlashcard() {
     const flashcard = document.querySelector("#flashcard")
     flashcard.classList.toggle("hide")
@@ -81,6 +87,7 @@ const Toggle = (() => {
     createForm: createForm,
     editAllFlashcards: editAllFlashcards,
     editFlashcard: editFlashcard,
-    resetFlashcard: resetFlashcard
+    resetFlashcard: resetFlashcard,
+    editAllFlashcardsOff: editAllFlashcardsOff
   }
 })()
