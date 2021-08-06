@@ -7,6 +7,7 @@ function flashcardDOM() {
   const hintTxt = document.querySelector(".hint-txt")
   const displayQContainer = document.querySelector('.question-display-container')
   const finish = document.querySelector('#finished')
+  // const cardCreated = document.querySelector('#card-created')
   return {question, answer, answerBtn, reminderBtnContainer, hint, hintTxt, displayQContainer, finish}
 }
 

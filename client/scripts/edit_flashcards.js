@@ -113,8 +113,7 @@ function renderAllFlashcards() {
     <section class="all-questions-display-container">
       ${displayAllFlashcards()}
     </section>
-
-`
+  `
 }
 
 
@@ -124,7 +123,7 @@ function displayAllFlashcards() {
     <section class="question-container" data-id=${flashcard.id}>
         <div class="question-preview">${flashcard.question}</div>
         <div class="edit-container">
-          <span class="material-icons" onClick="Toggle.editFlashcard(); Toggle.editAllFlashcards()">edit</span><div class="edit" onClick="Toggle.editFlashcard(); Toggle.editAllFlashcards();mapFlashcard(event)">Edit</div>
+          <span class="material-icons" onClick="mapFlashcard(event)">edit</span><div class="edit" onClick="mapFlashcard(event)">Edit</div>
         </div>
       </section>
     `).join('')

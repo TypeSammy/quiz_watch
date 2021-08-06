@@ -7,11 +7,11 @@ function renderCategoryHeader() {
   document.querySelector("#category-container").innerHTML = `
   <ul class="category-header">
     <div class="header-left">
-      <li><h2 class="flashcards-link" onClick="Toggle.questionDisplay()">Flashcards</h2></li>
-      <li class="material-icons edit" onClick="Toggle.editAllFlashcards(); Toggle.questionAndEdit()">edit</li>
+      <li><h2 class="flashcards-link" onClick="Toggle.resetFlashcard()">Flashcards</h2></li>
+      <li class="material-icons edit" onClick="Toggle.editAllFlashcards()">edit</li>
       <li class="edit edit-txt" onClick="Toggle.editAllFlashcards()">Edit deck</li>
-      <li class="material-icons edit" onClick="Toggle.createForm(); Toggle.questionDisplay()">add_circle</li>
-      <li class="edit edit-txt" onClick="Toggle.createForm(); Toggle.questionDisplay()">Add card</li>
+      <li class="material-icons edit" onClick="Toggle.createForm()">add_circle</li>
+      <li class="edit edit-txt" onClick="Toggle.createForm()">Add card</li>
     </div>
     <li>1/10</li>
   </ul>
@@ -46,6 +46,8 @@ function renderQuestion() {
 function renderCreateForm() {
   document.querySelector("#create-card").innerHTML = `
       <div class="create-flashcard-container">
+      <div id="card-created" class="card-created">Flashcard created!</div>
+      <div class="create-form-container">
         <form id="create-flashcard-form" action="/" method="POST" onSubmit="creatingCard(event)">
           <fieldset>
             <label for="question">Question:</label><br>
@@ -61,6 +63,7 @@ function renderCreateForm() {
           </fieldset>
           <button>Add</button>
         </form>
+      </div>
       </div>
   `
 }
@@ -84,17 +87,18 @@ function creatingCard(event) {
   const data = Object.fromEntries(new FormData(newFlashcardForm));
   
   axios.post("/api/quiz", data)
+    .then(successResponse => {
+      document.querySelector("#create-flashcard-form").style.display = "none"
+      document.querySelector("#card-created").style.display = "block"
+    })
     // .then(successResponse => {
-    //   window.location = "/"
+    //   // TODO
     // })
-  // .then(successResponse => {
-  //   // TODO
-  // })
-  // .catch(errorResponse => {
-  //   console.log(errorResponse);
-  //   document.querySelector('#errors')
-  //     .innerHTML = errorResponse.response.data.message;
-  // });
+    .catch(errorResponse => {
+      console.log(errorResponse);
+      document.querySelector('#errors')
+        .innerHTML = errorResponse.response.data.message;
+    });
 }
 
 function editCategory() {
