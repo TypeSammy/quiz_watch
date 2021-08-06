@@ -46,6 +46,8 @@ function renderQuestion() {
 function renderCreateForm() {
   document.querySelector("#create-card").innerHTML = `
       <div class="create-flashcard-container">
+      <div id="card-created" class="card-created">Flashcard created!</div>
+      <div class="create-form-container">
         <form id="create-flashcard-form" action="/" method="POST" onSubmit="creatingCard(event)">
           <fieldset>
             <label for="question">Question:</label><br>
@@ -61,6 +63,7 @@ function renderCreateForm() {
           </fieldset>
           <button>Add</button>
         </form>
+      </div>
       </div>
   `
 }
@@ -84,17 +87,18 @@ function creatingCard(event) {
   const data = Object.fromEntries(new FormData(newFlashcardForm));
   
   axios.post("/api/quiz", data)
+    .then(successResponse => {
+      document.querySelector("#create-flashcard-form").style.display = "none"
+      document.querySelector("#card-created").style.display = "block"
+    })
     // .then(successResponse => {
-    //   window.location = "/"
+    //   // TODO
     // })
-  // .then(successResponse => {
-  //   // TODO
-  // })
-  // .catch(errorResponse => {
-  //   console.log(errorResponse);
-  //   document.querySelector('#errors')
-  //     .innerHTML = errorResponse.response.data.message;
-  // });
+    .catch(errorResponse => {
+      console.log(errorResponse);
+      document.querySelector('#errors')
+        .innerHTML = errorResponse.response.data.message;
+    });
 }
 
 function editCategory() {

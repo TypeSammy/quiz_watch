@@ -9,7 +9,15 @@ const Toggle = (() => {
   }
   function questionDisplay() {
     const questionDisplay = document.querySelector("#question-display")
-    return questionDisplay.classList.toggle("hide")
+    if (questionDisplay.classList.contains("hide")) {
+      questionDisplay.classList.toggle("hide")
+    }
+    // questionDisplay.classList.toggle("hide")
+    // document.querySelector("#create-card")
+    // document.querySelector("#all-flashcards")
+    // document.querySelector("#flashcard")
+    // document.querySelector("#question-display")
+
   }
   function createForm() {
     const createForm = document.querySelector("#create-card")
