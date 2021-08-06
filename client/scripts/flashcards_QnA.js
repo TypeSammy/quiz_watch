@@ -7,11 +7,11 @@ function renderCategoryHeader() {
   document.querySelector("#category-container").innerHTML = `
   <ul class="category-header">
     <div class="header-left">
-      <li><h2 class="flashcards-link" onClick="Toggle.questionDisplay()">Flashcards</h2></li>
-      <li class="material-icons edit" onClick="Toggle.editAllFlashcards(); Toggle.questionAndEdit()">edit</li>
+      <li><h2 class="flashcards-link" onClick="Toggle.resetFlashcard()">Flashcards</h2></li>
+      <li class="material-icons edit" onClick="Toggle.editAllFlashcards()">edit</li>
       <li class="edit edit-txt" onClick="Toggle.editAllFlashcards()">Edit deck</li>
-      <li class="material-icons edit" onClick="Toggle.createForm(); Toggle.questionDisplay()">add_circle</li>
-      <li class="edit edit-txt" onClick="Toggle.createForm(); Toggle.questionDisplay()">Add card</li>
+      <li class="material-icons edit" onClick="Toggle.createForm()">add_circle</li>
+      <li class="edit edit-txt" onClick="Toggle.createForm()">Add card</li>
     </div>
     <li>1/10</li>
   </ul>
