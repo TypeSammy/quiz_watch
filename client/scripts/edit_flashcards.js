@@ -132,12 +132,12 @@ function displayAllFlashcards() {
 
 function mapFlashcard(event) {
   const editFlashcardId = event.target.closest('.question-container').dataset.id
+
   var converted = Object.assign({}, ...state.allFlashcards.map(object => ({[object.id]: object})))
   var flashcardToBeEdited = converted[editFlashcardId]
-
   document.querySelector("#flashcard").innerHTML = `
-    <div class="edit-flashcard-container">
-      <form id="edit-flashcard-form" action="/" method="POST">
+    <div class="edit-flashcard-container" data-id=${flashcardToBeEdited.id}>
+      <form id="edit-flashcard-form" action="/" method="POST" onSubmit="editingFlashcard(event)">
         <fieldset>
           <label for="question">Question:</label><br>
           <textarea name="question" cols="20" rows="5">${flashcardToBeEdited.question}</textarea>
@@ -155,4 +155,21 @@ function mapFlashcard(event) {
         </form>
     </div>
   `
+}
+
+function editingFlashcard(event){
+  event.preventDefault()
+  const flashId = event.target.closest('.edit-flashcard-container').dataset.id
+	const data = Object.fromEntries(new FormData(event.target));
+  const editData = {
+    question: data.question,
+    hint: data.hint,
+    answer: data.answer,
+    id: flashId
+  }
+  console.log(editData)
+
+  axios.patch('/api/quiz/edit', editData)
+		.then(successResponse => {
+		window.location = "/"})
 }
