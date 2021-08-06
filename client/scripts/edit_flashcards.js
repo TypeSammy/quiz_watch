@@ -151,13 +151,13 @@ function mapFlashcard(event) {
           <textarea name="answer" cols="20" rows="5">${flashcardToBeEdited.answer}</textarea>
         </fieldset>
         <button>Save</button>
-        <button class="delete">Delete</button>
         </form>
+        <button class="delete" onClick="deleteFlashcard(event)">Delete</button>
     </div>
   `
 }
 
-function editingFlashcard(event){
+function editingFlashcard(event) {
   event.preventDefault()
   const flashId = event.target.closest('.edit-flashcard-container').dataset.id
 	const data = Object.fromEntries(new FormData(event.target));
@@ -167,9 +167,22 @@ function editingFlashcard(event){
     answer: data.answer,
     id: flashId
   }
-  console.log(editData)
 
   axios.patch('/api/quiz/edit', editData)
 		.then(successResponse => {
 		window.location = "/"})
+}
+
+function deleteFlashcard(event) {
+  const flashId = event.target.closest('.edit-flashcard-container').dataset.id
+  
+  const id = {
+    id: parseInt(flashId)
+  }
+  console.log(id)
+
+  axios
+  .delete('/api/quiz/delete', {data: id})
+  .catch(errorResponse => {
+    console.log(errorResponse)});
 }
