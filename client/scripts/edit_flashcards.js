@@ -123,7 +123,7 @@ function displayAllFlashcards() {
     <section class="question-container" data-id=${flashcard.id}>
         <div class="question-preview">${flashcard.question}</div>
         <div class="edit-container">
-          <span class="material-icons" onClick="mapFlashcard(event)">edit</span><div class="edit" onClick="mapFlashcard(event)">Edit</div>
+          <span class="material-icons" onClick="mapFlashcard(event);Toggle.editAllFlashcardsOff();Toggle.editFlashcard();">edit</span><div class="edit" onClick="mapFlashcard(event);Toggle.editAllFlashcardsOff();Toggle.editFlashcard()">Edit</div>
         </div>
       </section>
     `).join('')
