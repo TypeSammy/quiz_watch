@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const db = require("../../db/db");
+const db = require("../db/db");
 
 const User = {
     create(username, email, password) {
@@ -22,9 +22,9 @@ const User = {
             SELECT * FROM users WHERE email = $1
         `
         return db.query(sql, [userEmail])
-        .then(dbResponse => {
-            return dbResponse.rows[0];
-        });
+            .then(dbResponse => {
+                return dbResponse.rows[0];
+            });
     }
 }
 

@@ -8,13 +8,13 @@ function validationError(msg) {
 
 function isNull(params) {
   if (params === "" || params === undefined || params === null)
-  return true
+    return true
 }
 
 function validateSignup(req, res, next) {
-  const {username, email, password} = req.body
+  const { username, email, password } = req.body
 
-  if (isNull(username)) { 
+  if (isNull(username)) {
     throw validationError("Name is required")
   } else if (isNull(email)) {
     throw validationError("Email is required")
@@ -31,15 +31,4 @@ function validateSignup(req, res, next) {
   next()
 }
 
-// function validateLogin(req, res, next) {
-//   const {email, password} = req.body
-//   if (isNull(email)) {
-//     throw validationError("Email is empty")
-//   } else if (isNull(password)) {
-//     throw validationError("Password is empty")
-//   } 
-// // TO DO validation for incorrect password
-// }
-
 module.exports = validateSignup
-// module.exports = validateLogin

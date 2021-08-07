@@ -6,13 +6,13 @@ function validationError(msg) {
 
 function isNull(params) {
   if (params === "" || params === undefined || params === null)
-  return true
+    return true
 }
 
 function validateFlashcard(req, res, next) {
-  const {question, hint, answer} = req.body
+  const { question, hint, answer } = req.body
 
-  if (isNull(question)) { 
+  if (isNull(question)) {
     throw validationError("Question is required")
   } else if (isNull(hint)) {
     throw validationError("Hint is required")

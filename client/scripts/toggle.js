@@ -53,7 +53,7 @@ const Toggle = (() => {
   function editAllFlashcardsOff() {
     const allFlashcards = document.querySelector("#all-flashcards")
     allFlashcards.classList.toggle("hide")
-  
+
   }
 
   function editFlashcard() {

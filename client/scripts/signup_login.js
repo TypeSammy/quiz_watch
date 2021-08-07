@@ -1,8 +1,6 @@
 const login = document.querySelector("#login")
 const signup = document.querySelector("#signup")
 
-// const validateUser = require("../../middlewares/validation/validate_user")
-
 const LoginSignup = (() => {
   function renderSignup() {
     const signupBox = document.querySelector("#signup")
@@ -64,30 +62,30 @@ const LoginSignup = (() => {
 
 
 function createUser(event) {
-	event.preventDefault()
-	const signUpForm = event.target
-	const data = Object.fromEntries(new FormData(signUpForm));
+  event.preventDefault()
+  const signUpForm = event.target
+  const data = Object.fromEntries(new FormData(signUpForm));
 
-	// validateUser()
+  // validateUser()
 
-	axios.post("/api/users", data)
-		.then(successResponse => {
-		const currentUser = successResponse.data
-		window.location = "/"
-		// state.user.push(currentUser) //needs an default user object in the cookie/session
-		})
-		.catch(errorResponse => {
-			console.log(errorResponse);
-			document.querySelector("#errors")
-			.innerHTML = errorResponse.response.data.message;
-		});
+  axios.post("/api/users", data)
+    .then(successResponse => {
+      const currentUser = successResponse.data
+      window.location = "/"
+      // state.user.push(currentUser) //needs an default user object in the cookie/session
+    })
+    .catch(errorResponse => {
+      console.log(errorResponse);
+      document.querySelector("#errors")
+        .innerHTML = errorResponse.response.data.message;
+    });
 }
 
 
 // event listener to hide the pop up modals when clicked anywhere outside of it
 const modalSignUp = document.querySelector(".modal1")
 const modalLogin = document.querySelector(".modal2")
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target === modalSignUp) {
     signup.classList.toggle("hide")
   } else if (event.target === modalLogin) {
@@ -97,50 +95,50 @@ window.onclick = function(event) {
 
 function logInUser(event) {
   console.log('TEST login')
-	event.preventDefault()
-	const loginForm = event.target
-	const data = Object.fromEntries(new FormData(loginForm))
+  event.preventDefault()
+  const loginForm = event.target
+  const data = Object.fromEntries(new FormData(loginForm))
 
-	axios.post("/api/sessions", data)
-		.then(successResponse => {
+  axios.post("/api/sessions", data)
+    .then(successResponse => {
       state.logInStatus = true
       Nav.header() // => calling nav header so it generates a different nav bar
       login.classList.toggle("hide")
       console.log(state.logInStatus) // TEST
-		})
+    })
     .then(successResponse => {
       console.log('TEST A')
       axios.get('/api/quiz')
-      .then(response => {
-        console.log('TEST B')
-        console.log(`RESPONSE DATA api/quiz : ${response.data}`)
-        state.flashcardsdue = response.data
-      })
+        .then(response => {
+          console.log('TEST B')
+          console.log(`RESPONSE DATA api/quiz : ${response.data}`)
+          state.flashcardsdue = response.data
+        })
     })
     .then(successResponse => {
       console.log('TEST c')
       axios.get('/api/quiz/all')
-      .then(response => {
-        console.log(`RESPONSE DATA quiz/all : ${response.data}`)
-        state.allFlashcards = response.data
-        console.log(state.allFlashcards) // TEST
-        renderCategoryHeader()
-        renderQuestion()
-        renderCreateForm()
-        Toggle.categoryHeader()
-        Toggle.questionDisplay()
-        // Toggle.createForm()
-        renderAllFlashcards()
-        renderFlashcard()
-        flashcardDOM()
-        // Toggle.editAllFlashcards()
-        Toggle.editFlashcard()
-        grabFlashcardsDue()
-      })
+        .then(response => {
+          console.log(`RESPONSE DATA quiz/all : ${response.data}`)
+          state.allFlashcards = response.data
+          console.log(state.allFlashcards) // TEST
+          renderCategoryHeader()
+          renderQuestion()
+          renderCreateForm()
+          Toggle.categoryHeader()
+          Toggle.questionDisplay()
+          // Toggle.createForm()
+          renderAllFlashcards()
+          renderFlashcard()
+          flashcardDOM()
+          // Toggle.editAllFlashcards()
+          Toggle.editFlashcard()
+          grabFlashcardsDue()
+        })
     })
-		.catch(errorResponse => {
-			console.log(errorResponse); // TEST
-			document.querySelector("#errors")
-			.innerHTML = errorResponse.response.data.message;
-		});
+    .catch(errorResponse => {
+      console.log(errorResponse); // TEST
+      document.querySelector("#errors")
+        .innerHTML = errorResponse.response.data.message;
+    });
 }

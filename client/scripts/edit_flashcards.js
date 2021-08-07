@@ -1,88 +1,6 @@
 const allFlashcards = document.querySelector("#all-flashcards")
 const editFlashcard = document.querySelector("#flashcard")
 
-// const Edit = (() => {
-
-//   // TODO add onSubmit or onClick for buttons above to update data OR delete
-//   renderFlashcard()
-//   renderAllFlashcards()
-//   editFlashcard.classList.toggle("hide")
-//   allFlashcards.classList.toggle("hide")
-
-//   function flashcard(id) {
-//     if (editFlashcard.classList.contains("hide")) {
-//       if (!(allFlashcards.classList.contains("hide"))) {
-//         allFlashcards.classList.toggle("hide")
-//       }
-//       editFlashcard.classList.toggle("hide")
-//     }
-
-//   }
-
-//   function updateFlashcard(id) {
-//     // TODO
-//   }
-
-//   function deleteFlashcard(id) {
-//     // TODO
-//   }
-
-//   return {
-//     flashcard: flashcard,
-//     deleteFlashcard: deleteFlashcard
-//   }
-
-// })()
-
-/*function renderAllFlashcards() {
-  document.querySelector("#all-flashcards").innerHTML = `
-    <section class="all-questions-display-container">
-      <div class="question-container">
-        <div class="question-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="edit-container">
-          <span class="material-icons" onClick="Toggle.editFlashcard(); Toggle.editAllFlashcards()">edit</span><div class="edit" onClick="Toggle.editFlashcard(); Toggle.editAllFlashcards()">Edit</div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="edit-container">
-          <span class="material-icons">edit</span><div class="edit">Edit</div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="edit-container">
-          <span class="material-icons">edit</span><div class="edit">Edit</div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="edit-container">
-          <span class="material-icons">edit</span><div class="edit">Edit</div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="edit-container">
-          <span class="material-icons">edit</span><div class="edit">Edit</div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?</div>
-        <div class="edit-container">
-          <span class="material-icons">edit</span><div class="edit">Edit</div>
-        </div>
-      </div>
-    </section>
-`
-}*/
-
-
 function renderFlashcard() {
   document.querySelector("#flashcard").innerHTML = `
     <div class="edit-flashcard-container">
@@ -106,8 +24,6 @@ function renderFlashcard() {
   `
 }
 
-
-
 function renderAllFlashcards() {
   document.querySelector("#all-flashcards").innerHTML = `
     <section class="all-questions-display-container">
@@ -115,8 +31,6 @@ function renderAllFlashcards() {
     </section>
   `
 }
-
-
 
 function displayAllFlashcards() {
   return state.allFlashcards.map(flashcard => `
@@ -129,11 +43,10 @@ function displayAllFlashcards() {
     `).join('')
 }
 
-
 function mapFlashcard(event) {
   const editFlashcardId = event.target.closest('.question-container').dataset.id
 
-  var converted = Object.assign({}, ...state.allFlashcards.map(object => ({[object.id]: object})))
+  var converted = Object.assign({}, ...state.allFlashcards.map(object => ({ [object.id]: object })))
   var flashcardToBeEdited = converted[editFlashcardId]
   document.querySelector("#flashcard").innerHTML = `
     <div class="edit-flashcard-container" data-id=${flashcardToBeEdited.id}>
@@ -160,7 +73,7 @@ function mapFlashcard(event) {
 function editingFlashcard(event) {
   event.preventDefault()
   const flashId = event.target.closest('.edit-flashcard-container').dataset.id
-	const data = Object.fromEntries(new FormData(event.target));
+  const data = Object.fromEntries(new FormData(event.target));
   const editData = {
     question: data.question,
     hint: data.hint,
@@ -169,20 +82,20 @@ function editingFlashcard(event) {
   }
 
   axios.patch('/api/quiz/edit', editData)
-		.then(successResponse => {
-		window.location = "/"})
+    .then(successResponse => {
+      window.location = "/"
+    })
 }
 
 function deleteFlashcard(event) {
   const flashId = event.target.closest('.edit-flashcard-container').dataset.id
-  
-  const id = {
-    id: parseInt(flashId)
-  }
-  console.log(id)
+
+  const id = { id: parseInt(flashId) }
 
   axios
-  .delete('/api/quiz/delete', {data: id})
-  .catch(errorResponse => {
-    console.log(errorResponse)});
+    .delete('/api/quiz/delete', { data: id })
+    .catch(errorResponse => {
+      console.log(errorResponse)
+    }
+    );
 }

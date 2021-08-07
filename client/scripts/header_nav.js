@@ -89,9 +89,9 @@ const Nav = (() => {
         allFlashcards.classList.toggle("hide")
       }
       questionDisplay.classList.toggle("hide")
-    } 
+    }
   }
-  
+
   return {
     render: render,
     displaySignup: displaySignup,

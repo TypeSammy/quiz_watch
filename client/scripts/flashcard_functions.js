@@ -7,8 +7,7 @@ function flashcardDOM() {
   const hintTxt = document.querySelector(".hint-txt")
   const displayQContainer = document.querySelector('.question-display-container')
   const finish = document.querySelector('#finished')
-  // const cardCreated = document.querySelector('#card-created')
-  return {question, answer, answerBtn, reminderBtnContainer, hint, hintTxt, displayQContainer, finish}
+  return { question, answer, answerBtn, reminderBtnContainer, hint, hintTxt, displayQContainer, finish }
 }
 
 function grabFlashcardsDue() {
@@ -19,11 +18,8 @@ let currentCardIndex = null
 
 function start() {
   let dom = flashcardDOM()
-  // let flashcardsDue = grabFlashcardsDue()
   document.querySelector(".start-btn").style.display = "none"
   currentCardIndex = 0
-  // document.querySelector("#flashcards").style.transform = "none"
-  // reminderBtnContainer.style.transform = "scale(0)"
   dom.question.style.display = "block"
   dom.hint.style.display = "flex"
   dom.answerBtn.style.display = "block"
@@ -50,15 +46,16 @@ function showAnswer() {
   let dom = flashcardDOM()
   dom.answer.style.display = "block"
   dom.reminderBtnContainer.style.display = "block"
-
   dom.answerBtn.style.display = "none"
   dom.question.style.display = "none"
   dom.hint.style.display = "none"
 }
+
 function showHint() {
   let dom = flashcardDOM()
   dom.hintTxt.style.display = "block"
 }
+
 function hideHint() {
   let dom = flashcardDOM()
   dom.hintTxt.style.display = "none"
@@ -76,20 +73,21 @@ function difficulty(lvl) {
   // dom object for answer page
   dom.answer.style.display = "none"
   dom.reminderBtnContainer.style.display = "none"
-// functions to add minute or days
-function addDays(date, days) {
-  date.setDate(date.getDate() + days)
-  return date;
-}
-function addMinutes(date, minutes) {
-  date.setTime(date.getTime() + minutes*60000)
-  return date;
-}
-// 
+  // functions to add minute or days
+  function addDays(date, days) {
+    date.setDate(date.getDate() + days)
+    return date;
+  }
+
+  function addMinutes(date, minutes) {
+    date.setTime(date.getTime() + minutes * 60000)
+    return date;
+  }
+
   var someDate = new Date();
-  if (lvl == 'easy'){ addDays(someDate, 7) } 
-    else if( lvl == 'medium') { addDays(someDate, 1) }
-    else if (lvl == 'hard') { addMinutes(someDate, 1) } 
+  if (lvl == 'easy') { addDays(someDate, 7) }
+  else if (lvl == 'medium') { addDays(someDate, 1) }
+  else if (lvl == 'hard') { addMinutes(someDate, 1) }
 
   var dd = someDate.getDate();
   var mm = someDate.getMonth() + 1;
@@ -98,73 +96,25 @@ function addMinutes(date, minutes) {
   var minutes = someDate.getMinutes();
   var seconds = someDate.getSeconds();
 
-// OPTION A
-  var reminder = y + '/'+ mm + '/'+ dd + " " + hour + ":" + minutes + ":" + seconds;
+  var reminder = y + '/' + mm + '/' + dd + " " + hour + ":" + minutes + ":" + seconds;
 
-  axios.patch('/api/quiz',{timestamp: reminder, id: cardId} )
-   // changes the index to cycle through array
-  // currentCardIndex+=1
-  // nextQ()
-  
-// OPTION B
-  // changes the index to cycle through array
-  // reminderUpdate(lvl, cardId)
-  if (currentCardIndex === flashcardsDue.length-1) {
+  axios.patch('/api/quiz', { timestamp: reminder, id: cardId })
+
+  if (currentCardIndex === flashcardsDue.length - 1) {
     dom.finish.style.display = "block"
     dom.answerBtn.style.display = "none"
     dom.question.style.display = "none"
     dom.hint.style.display = "none"
   } else {
-    currentCardIndex+=1
+    currentCardIndex += 1
     nextQ()
   }
 }
-// making new flashcard
-function createNewFlashcard(question, hint, answer){
-  // need to grab the data from the user submitted form
-  axios.post('/api/quiz',{question: question, hint: hint, answer: answer} )
+
+function createNewFlashcard(question, hint, answer) {
+  axios.post('/api/quiz', { question: question, hint: hint, answer: answer })
 }
 
-// editing new flashcard
-function editingFlashcard(question, hint, answer, id){
-  axios.post('/api/quiz/edit',{question: question, hint: hint, answer: answer, id:id} )
+function editingFlashcard(question, hint, answer, id) {
+  axios.post('/api/quiz/edit', { question: question, hint: hint, answer: answer, id: id })
 }
-
-const fakeQuestions = [
-  {
-    answer: "answer 1",
-    answered_correctly: 0,
-    answered_incorrectly: 0,
-    category: "Javascript",
-    difficulty: null,
-    hint: "for example shrek 1 ",
-    id: 1,
-    question: "Question ONE",
-    reminder: "2021-08-02T11:56:55.140Z",
-    user_id: 1
-  },
-  {
-    answer: "cry",
-    answered_correctly: 0,
-    answered_incorrectly: 0,
-    category: "Javascript",
-    difficulty: null,
-    hint: "for example shrek 1 ",
-    id: 1,
-    question: "Question TWO",
-    reminder: "2021-08-02T11:56:55.140Z",
-    user_id: 1
-  },
-  {
-    answer: "It don't matter",
-    answered_correctly: 0,
-    answered_incorrectly: 0,
-    category: "Javascript",
-    difficulty: null,
-    hint: "for example shrek 1 ",
-    id: 1,
-    question: "Is Macey white on black or black on white",
-    reminder: "2021-08-02T11:56:55.140Z",
-    user_id: 1
-  }
-]
