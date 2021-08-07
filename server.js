@@ -1,5 +1,5 @@
 // 
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
@@ -19,12 +19,12 @@ const errorHandler = require("./middlewares/error_handler")
 
 // Sets Cookie and encrypts
 const sessionConfig = {
-    secret : process.env.SESSION_SECRET,
-    cookie : {}
+    secret: process.env.SESSION_SECRET,
+    cookie: {}
 }
 
 
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
     sessionConfig.cookie.secure = true;
     app.set('trust proxy', 1);
 }
@@ -45,10 +45,10 @@ app.use('/api/sessions', sessionsController)
 app.use('/api/quiz', quizController)
 
 // For heroku deployment
-const port = process.env.PORT || 3001 ;
-    
+const port = process.env.PORT || 3001;
+
 // TESTING - not needed once deployed
-app.listen(port , () => {
+app.listen(port, () => {
     console.log(`*** Listening on port ${port} ***`)
 })
 

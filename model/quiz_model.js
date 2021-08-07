@@ -17,7 +17,7 @@ const Flashcards = {
                 return dbResponse.rows[0]
             })
     },
-// getting all the flashcards for the user
+    // getting all the flashcards for the user
     flashcardsForUser(userId) {
         console.log('flashcard for user')
         const sql = `
@@ -27,8 +27,8 @@ const Flashcards = {
             .then(dbResponse => {
                 return dbResponse.rows
             })
-    }, 
-// getting only the due flashcards for the user
+    },
+    // getting only the due flashcards for the user
     flashcardsDue(userId) {
         const sql = `
             SELECT * FROM flashcards WHERE user_id = $1 and reminder < now()
@@ -37,30 +37,30 @@ const Flashcards = {
             .then(dbResponse => {
                 return dbResponse.rows
             })
-    }, 
-// updating flashcard to a new reminder
+    },
+    // updating flashcard to a new reminder
     updateFlashcardReminder(timestamp, id) {
         const sql = `
             UPDATE flashcards SET reminder =  (to_timestamp($1,'YYYY-MM-DD hh24:MI:SS')) WHERE id = $2;
         `
-        return db.query(sql, [timestamp, id ])
+        return db.query(sql, [timestamp, id])
             .then(dbResponse => {
                 return dbResponse.rows
             })
     },
-// edit flashcards
+    // edit flashcards
     updateFlashcardForm(question, hint, answer, id) {
         const sql = `
             UPDATE flashcards SET question = $1, hint = $2, answer = $3 WHERE id = $4;
         `
-        return db.query(sql, [question, hint, answer , id ])
+        return db.query(sql, [question, hint, answer, id])
             .then(dbResponse => {
                 return dbResponse.rows
             })
     },
 
-// Deleting flashcard
-    flashcardsDelete (flashcardId) {
+    // Deleting flashcard
+    flashcardsDelete(flashcardId) {
         const sql = `
             DELETE FROM flashcards WHERE id = $1
         `

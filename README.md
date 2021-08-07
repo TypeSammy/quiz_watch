@@ -23,3 +23,9 @@ replace placeholder text with flashcard guides
 refactor code inc spacing etc.
 
 WRITE THE README!!!
+
+WISHLIST:
+validate to excludes duplicate users
+validiate valid email
+validate flashcard create
+calidate flashcard edit

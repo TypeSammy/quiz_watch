@@ -45,7 +45,7 @@ const LandingPage = (() => {
   }
 
   renderLandingPage()
-  
+
   function getStarted(event) {
     if (!(state.logInStatus)) {
       event.preventDefault()
