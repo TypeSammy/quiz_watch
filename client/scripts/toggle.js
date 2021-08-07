@@ -100,18 +100,24 @@ const Toggles = (() => {
     const createFlashcard = document.querySelector("#create-card")
     const allFlashcards = document.querySelector("#all-flashcards")
     const flashcard = document.querySelector("#flashcard")
-    const cardCreatedMshh = document.querySelector("#card-created")
+    const categoryHeader = document.querySelector("#category-container")
+    const landingPage = document.querySelector("#landing-page")
 
-    if (createForm.classList.contains("hide")) {
-      // if (cardCreatedMshh.clas)
-      if (!questionDisplay.classList.contains("hide")) {
-        questionDisplay.classList.toggle("hide")
-      } else if (!allFlashcards.classList.contains("hide")) {
-        allFlashcards.classList.toggle("hide")
-      } else if (!flashcard.classList.contains("hide")) {
-        flashcard.classList.toggle("hide")
-      }
-      createForm.classList.toggle("hide")
+    // Toggle arrays for resets 
+    const allToggles = [questionDisplay, createFlashcard, allFlashcards, flashcard, categoryHeader]
+    const flashcardToggles = [questionDisplay, createFlashcard, allFlashcards, flashcard]
+    const flashcardsDueToggles = [questionDisplay, categoryHeader, landingPage]
+
+    return {
+      questionDisplay: questionDisplay,
+      createFlashcard: createFlashcard,
+      allFlashcards: allFlashcards,
+      flashcard: flashcard,
+      categoryHeader: categoryHeader,
+      landingPage: landingPage,
+      allToggles: allToggles,
+      flashcardToggles: flashcardToggles,
+      flashcardsDueToggles: flashcardsDueToggles
     }
   }
 
