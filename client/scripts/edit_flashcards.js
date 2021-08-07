@@ -81,22 +81,60 @@ function editingFlashcard(event) {
     id: flashId
   }
 
-  axios.patch('/api/quiz/edit', editData)
+  axios
+    .patch('/api/quiz/edit', editData)
     .then(successResponse => {
-      window.location = "/"
+      axios.get('/api/quiz')
+        .then(response => {
+          state.flashcardsdue = response.data
+        })
+    })
+    .then(successResponse => {
+      axios.get('/api/quiz/all')
+        .then(response => {
+          state.allFlashcards = response.data
+          renderCategoryHeader()
+          renderQuestion()
+          renderCreateForm()
+          renderAllFlashcards()
+          flashcardDOM()
+          grabFlashcardsDue()
+          Toggles.reset()
+          Toggles.displayEditDeck()
+        })
     })
 }
 
 function deleteFlashcard(event) {
   const flashId = event.target.closest('.edit-flashcard-container').dataset.id
-
   const id = { id: parseInt(flashId) }
 
   axios
     .delete('/api/quiz/delete', { data: id })
-    .catch(errorResponse => {
+    .then(successResponse => {
+      axios.get('/api/quiz')
+        .then(response => {
+          state.flashcardsdue = response.data
+        })
+    })
+    .then(successResponse => {
+      axios.get('/api/quiz/all')
+        .then(response => {
+          state.allFlashcards = response.data
+          renderCategoryHeader()
+          renderQuestion()
+          renderCreateForm()
+          renderAllFlashcards()
+          flashcardDOM()
+          grabFlashcardsDue()
+          Toggles.reset()
+          Toggles.displayEditDeck()
+        })
+        .catch(errorResponse => {
+        }
+        );
     }
-    );
+    )
 }
 
 

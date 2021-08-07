@@ -4,7 +4,7 @@ function renderCategoryHeader() {
   document.querySelector("#category-container").innerHTML = `
     <ul class="category-header">
       <div class="header-left">
-        <li><h2 class="flashcards-link" onClick="Toggles.reset(); Toggles.displayDueFlashcards()">Flashcards</h2></li>
+        <li><h2 class="flashcards-link" onClick="Toggles.reset(); Toggles.displayDueFlashcards(); refresh()">Flashcards</h2></li>
         <li class="material-icons edit" onClick="Toggles.reset(); Toggles.displayEditDeck()">edit</li>
         <li class="edit edit-txt" onClick="Toggles.reset(); Toggles.displayEditDeck()">Edit deck</li>
         <li class="material-icons edit" onClick="Toggles.reset(); Toggles.displayCreateFlashcard()">add_circle</li>
@@ -74,6 +74,26 @@ function creatingCard(event) {
       document.querySelector("#create-flashcard-form").style.display = "none"
       document.querySelector("#card-created").style.display = "block"
     })
+    .then(successResponse => {
+      axios.get('/api/quiz')
+        .then(response => {
+          state.flashcardsdue = response.data
+        })
+    })
+    .then(successResponse => {
+      axios.get('/api/quiz/all')
+        .then(response => {
+          state.allFlashcards = response.data
+          renderCategoryHeader()
+          renderQuestion()
+          renderCreateForm()
+          renderAllFlashcards()
+          flashcardDOM()
+          grabFlashcardsDue()
+          Toggles.reset()
+          Toggles.displayDueFlashcards()
+        })
+    })
     .catch(errorResponse => {
       document.querySelector('#errors')
         .innerHTML = errorResponse.response.data.message;
@@ -112,4 +132,25 @@ function createCard(id) {
 
 function returnFlashcads() {
   Nav.playFlashcards()
+}
+
+function refresh() {
+  axios.get('/api/quiz')
+    .then(response => {
+      state.flashcardsdue = response.data
+    })
+    .then(successResponse => {
+      axios.get('/api/quiz/all')
+        .then(response => {
+          state.allFlashcards = response.data
+          renderCategoryHeader()
+          renderQuestion()
+          renderCreateForm()
+          renderAllFlashcards()
+          flashcardDOM()
+          grabFlashcardsDue()
+          Toggles.reset()
+          Toggles.displayDueFlashcards()
+        })
+    })
 }

@@ -42,7 +42,6 @@ function showCard(flashcardsDue) {
 }
 
 function showAnswer() {
-  console.log('TEST 5')
   let dom = flashcardDOM()
   dom.answer.style.display = "block"
   dom.reminderBtnContainer.style.display = "block"
@@ -111,10 +110,10 @@ function difficulty(lvl) {
   }
 }
 
-function createNewFlashcard(question, hint, answer) {
-  axios.post('/api/quiz', { question: question, hint: hint, answer: answer })
-}
+// function createNewFlashcard(question, hint, answer) {
+//   axios.post('/api/quiz', { question: question, hint: hint, answer: answer })
+// }
 
-function editingFlashcard(question, hint, answer, id) {
-  axios.post('/api/quiz/edit', { question: question, hint: hint, answer: answer, id: id })
-}
+// function editingFlashcard(question, hint, answer, id) {
+//   axios.post('/api/quiz/edit', { question: question, hint: hint, answer: answer, id: id })
+// }
