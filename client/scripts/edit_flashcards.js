@@ -1,28 +1,28 @@
 const allFlashcards = document.querySelector("#all-flashcards")
 const editFlashcard = document.querySelector("#flashcard")
 
-function renderFlashcard() {
-  document.querySelector("#flashcard").innerHTML = `
-    <div class="edit-flashcard-container">
-      <form id="edit-flashcard-form" action="/" method="POST">
-        <fieldset>
-          <label for="question">Question:</label><br>
-          <textarea name="question" cols="20" rows="5">question information display here</textarea>
-        </fieldset>
-        <fieldset>
-          <label for="question">Hint:</label><br>
-          <textarea name="hint" cols="20" rows="5">Hint information display here</textarea>
-        </fieldset>
-        <fieldset>
-          <label for="question">Answer:</label><br>
-          <textarea name="answer" cols="20" rows="5">Answer information display here</textarea>
-        </fieldset>
-        <button>Save</button>
-        <button class="delete">Delete</button>
-        </form>
-    </div>
-  `
-}
+// function renderFlashcard() {
+//   document.querySelector("#flashcard").innerHTML = `
+//     <div class="edit-flashcard-container">
+//       <form id="edit-flashcard-form" action="/" method="POST">
+//         <fieldset>
+//           <label for="question">Question:</label><br>
+//           <textarea name="question" cols="20" rows="5">question information display here</textarea>
+//         </fieldset>
+//         <fieldset>
+//           <label for="question">Hint:</label><br>
+//           <textarea name="hint" cols="20" rows="5">Hint information display here</textarea>
+//         </fieldset>
+//         <fieldset>
+//           <label for="question">Answer:</label><br>
+//           <textarea name="answer" cols="20" rows="5">Answer information display here</textarea>
+//         </fieldset>
+//         <button>Save</button>
+//         <button class="delete">Delete</button>
+//         </form>
+//     </div>
+//   `
+// }
 
 function renderAllFlashcards() {
   document.querySelector("#all-flashcards").innerHTML = `
@@ -37,7 +37,7 @@ function displayAllFlashcards() {
     <section class="question-container" data-id=${flashcard.id}>
         <div class="question-preview">${flashcard.question}</div>
         <div class="edit-container">
-          <span class="material-icons" onClick="mapFlashcard(event);Toggle.editAllFlashcardsOff();Toggle.editFlashcard();">edit</span><div class="edit" onClick="mapFlashcard(event);Toggle.editAllFlashcardsOff();Toggle.editFlashcard()">Edit</div>
+          <span class="material-icons" onClick="mapFlashcard(event);Toggles.reset(); Toggles.displayFlashcard()">edit</span><div class="edit" onClick="mapFlashcard(event);Toggles.reset(); Toggles.displayFlashcard()">Edit</div>
         </div>
       </section>
     `).join('')
@@ -95,7 +95,6 @@ function deleteFlashcard(event) {
   axios
     .delete('/api/quiz/delete', { data: id })
     .catch(errorResponse => {
-      console.log(errorResponse)
     }
     );
 }

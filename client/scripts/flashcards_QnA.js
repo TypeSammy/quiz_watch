@@ -4,11 +4,11 @@ function renderCategoryHeader() {
   document.querySelector("#category-container").innerHTML = `
     <ul class="category-header">
       <div class="header-left">
-        <li><h2 class="flashcards-link" onClick="Toggle.resetFlashcard()">Flashcards</h2></li>
-        <li class="material-icons edit" onClick="Toggle.editAllFlashcards()">edit</li>
-        <li class="edit edit-txt" onClick="Toggle.editAllFlashcards()">Edit deck</li>
-        <li class="material-icons edit" onClick="Toggle.createForm()">add_circle</li>
-        <li class="edit edit-txt" onClick="Toggle.createForm()">Add card</li>
+        <li><h2 class="flashcards-link" onClick="Toggles.reset(); Toggles.displayDueFlashcards()">Flashcards</h2></li>
+        <li class="material-icons edit" onClick="Toggles.reset(); Toggles.displayEditDeck()">edit</li>
+        <li class="edit edit-txt" onClick="Toggles.reset(); Toggles.displayEditDeck()">Edit deck</li>
+        <li class="material-icons edit" onClick="Toggles.reset(); Toggles.displayCreateFlashcard()">add_circle</li>
+        <li class="edit edit-txt" onClick="Toggles.reset(); Toggles.displayCreateFlashcard()">Add card</li>
       </div>
       <li>1/10</li>
     </ul>
@@ -75,7 +75,6 @@ function creatingCard(event) {
       document.querySelector("#card-created").style.display = "block"
     })
     .catch(errorResponse => {
-      console.log(errorResponse);
       document.querySelector('#errors')
         .innerHTML = errorResponse.response.data.message;
     });

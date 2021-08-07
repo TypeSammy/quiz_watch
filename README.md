@@ -28,4 +28,9 @@ WISHLIST:
 validate to excludes duplicate users
 validiate valid email
 validate flashcard create
-calidate flashcard edit
+validate flashcard edit
+display notifications in nav bar
+display username in nav bar
+
+TODO:
+CSS quizwatch logo/name curser > pointer

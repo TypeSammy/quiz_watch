@@ -9,7 +9,6 @@ router.post('/', (req, res) => {
         .then(user => {
             if (bcrypt.compareSync(req.body.password, user.password_digest)) {
                 req.session.userId = user.id
-                console.log(req.session.userId)
                 res.json({ "message": "Login Successful" })
             } else {
                 res.status(401).json({ error: "No such user found" })
@@ -27,7 +26,6 @@ router.delete('/', (req, res) => {
 // to get flashcard data
 router.get('/', (req, res) => {
     if (!req.session) {
-        console.log("No one is logged in")
         res.json({ "message": "No one is logged in" })
     } else {
         res.json(req.session)

@@ -94,7 +94,6 @@ window.onclick = function (event) {
 }
 
 function logInUser(event) {
-  console.log('TEST login')
   event.preventDefault()
   const loginForm = event.target
   const data = Object.fromEntries(new FormData(loginForm))
@@ -104,40 +103,28 @@ function logInUser(event) {
       state.logInStatus = true
       Nav.header() // => calling nav header so it generates a different nav bar
       login.classList.toggle("hide")
-      console.log(state.logInStatus) // TEST
     })
     .then(successResponse => {
-      console.log('TEST A')
       axios.get('/api/quiz')
         .then(response => {
-          console.log('TEST B')
-          console.log(`RESPONSE DATA api/quiz : ${response.data}`)
           state.flashcardsdue = response.data
         })
     })
     .then(successResponse => {
-      console.log('TEST c')
       axios.get('/api/quiz/all')
         .then(response => {
-          console.log(`RESPONSE DATA quiz/all : ${response.data}`)
           state.allFlashcards = response.data
-          console.log(state.allFlashcards) // TEST
           renderCategoryHeader()
           renderQuestion()
           renderCreateForm()
-          Toggle.categoryHeader()
-          Toggle.questionDisplay()
-          // Toggle.createForm()
           renderAllFlashcards()
           renderFlashcard()
           flashcardDOM()
-          // Toggle.editAllFlashcards()
-          Toggle.editFlashcard()
           grabFlashcardsDue()
+          Toggles.reset()
         })
     })
     .catch(errorResponse => {
-      console.log(errorResponse); // TEST
       document.querySelector("#errors")
         .innerHTML = errorResponse.response.data.message;
     });
