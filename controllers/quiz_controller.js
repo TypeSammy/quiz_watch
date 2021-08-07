@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const Flashcards = require("../../model/quiz_model/quiz_model")
+const Flashcards = require("../model/quiz_model")
 
 // getting flashcards for the user
 router.get('/', (req,res) => {

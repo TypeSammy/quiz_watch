@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt")
 const router = express.Router();
-const User = require("../../model/user_model/user_model")
+const User = require("../model/user_model")
 // const validateLogin = require("../../middlewares/validation/validate_user")
 
 // Login Session controller

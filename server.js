@@ -9,9 +9,9 @@ const session = require('express-session')
 const app = express()
 
 // Controllers
-const sessionsController = require('./controllers/session_controller/session_controller')
-const usersController = require('./controllers/user_controller/users_controller')
-const quizController = require('./controllers/quiz_controller/quiz_controller')
+const sessionsController = require('./controllers/session_controller')
+const usersController = require('./controllers/users_controller')
+const quizController = require('./controllers/quiz_controller')
 
 
 // Middlewares:

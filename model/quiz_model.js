@@ -2,7 +2,7 @@
 // `INSERT INTO quiz_reminders (testdate) VALUES (TIMESTAMP '2021-07-28 21:24:08');`
 
 const session = require('express-session');
-const db = require('../../db/db');
+const db = require('../db/db');
 
 const Flashcards = {
     // Creating new flashcards after the user has logged in

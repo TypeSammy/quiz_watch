@@ -6,6 +6,8 @@ delete testing123.js
 delete time_controller and folder
 delete the folders for controllers and re-route things
 
+add if function to check for overdue cards - in case it's empty when clicking flashcards
+
 change initiialise and the following nav ini to a toggle function
 
 confirm we can delete:

@@ -1,7 +1,7 @@
 
 const express = require("express")
 const router = express.Router()
-const User = require("../../model/user_model/user_model");
+const User = require("../model/user_model");
 // const validateSignup = require("../../middlewares/validation/validate_user"); // TODO
 
 
