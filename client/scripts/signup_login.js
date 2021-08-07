@@ -24,6 +24,7 @@ const LoginSignup = (() => {
     </div>
     `
   }
+  
   function renderLogin() {
     const signupBox = document.querySelector("#login")
     signupBox.classList.remove("hide")
@@ -81,7 +82,6 @@ function createUser(event) {
     });
 }
 
-
 // event listener to hide the pop up modals when clicked anywhere outside of it
 const modalSignUp = document.querySelector(".modal1")
 const modalLogin = document.querySelector(".modal2")
@@ -118,7 +118,6 @@ function logInUser(event) {
           renderQuestion()
           renderCreateForm()
           renderAllFlashcards()
-          renderFlashcard()
           flashcardDOM()
           grabFlashcardsDue()
           Toggles.reset()

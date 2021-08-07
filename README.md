@@ -1,36 +1,57 @@
 # Quiz Watch
+Summary
 
-A hybrid quiz/flashcard program.
+## How to use
+- add test login!
 
-delete testing123.js
-delete time_controller and folder
-delete the folders for controllers and re-route things
+## Try it out
+- [Try Quiz Watch here](link)
 
-add if function to check for overdue cards - in case it's empty when clicking flashcards
+## Features
+- 
 
-change initiialise and the following nav ini to a toggle function
+## 🛠️ Technology used
+- HTML/CSS
+- Node JS
+- Express
+- Bcrypt
+- PostgreSQL
+- https://fonts.google.com/icons
 
-confirm we can delete:
-    flashcards - 1 page
-    category.js
-    edit_flashcard.js
+## 📐 Planning
+- 
 
-find all the TEST / TODO and commented out code and delete 
-add comments for easy reference for later
+## 🐛 Bugs
+- If there are no flashcards due
+- If you submit you have to logout and log back in
 
-replace placeholder text with flashcard guides
+## 🌱  Future updates
+- 
 
-refactor code inc spacing etc.
+## 🎨 Digital Mockups
+?
 
-WRITE THE README!!!
+## ✏️ Flowchart
+?
 
-WISHLIST:
-validate to excludes duplicate users
-validiate valid email
-validate flashcard create
-validate flashcard edit
-display notifications in nav bar
-display username in nav bar
+***
 
-TODO:
-CSS quizwatch logo/name curser > pointer
+## Our experience
+I found that creating the visual representations of the database, web flow and RESTful routes helped keep my project organised.
+Having a very clear structure and end goal in mind meant I was never stuck on what to do next.
+
+Key learning:
+- Plan everything
+
+Challenges:
+- CSS stylings (not with Sam around)
+- PSQL (except for Kevin)
+- Displaying specific pages with specific paths
+
+## 🌟 Show your support
+Give this a star to show your support.
+
+## 📬 Contact me on
+- [LinkedIn](https://www.linkedin.com/in/samantha-gold-90b939a9/)
+- [E-mail](mailto:typesammy@gmail.com)
+- [Instagram](https://www.instagram.com/typesammy_)
