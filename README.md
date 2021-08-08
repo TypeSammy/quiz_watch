@@ -38,10 +38,11 @@ The planning involved in this project included:
 - Add a notification display in the navigation bar to indicate if there are flashcards to do
 
 ## 🎨 Digital Mockups
-to Add
+![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Mockups.png)
 
 ## ✏️ Flowchart
-to Add
+![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Flowchart%201.jpg)
+![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Flowchart%202.png)
  
 ***
 
