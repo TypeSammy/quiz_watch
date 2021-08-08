@@ -7,7 +7,7 @@ const LandingPage = (() => {
         <div class="main-copy">
           <h1>Make learning easier</h1>
           <p>Master any topics you want and become the best version of yourself</p>
-          <a class="button" onClick="Toggles.reset(); Toggles.displayDueFlashcards()">Get Started</a>
+          <a class="button" onClick="LandingPage.getStarted(event)">Get Started</a>
         </div>
         <div class="main-img">
           <img src="./assets/character 16 crop.svg" alt="two people studying">
@@ -51,9 +51,8 @@ const LandingPage = (() => {
       event.preventDefault()
       login.classList.toggle("hide")
     } else {
-      Toggle.landing()
-      Toggle.categoryHeader()
-      Toggle.questionDisplay()
+      Toggles.reset()
+      Toggles.displayDueFlashcards()
     }
   }
   return {

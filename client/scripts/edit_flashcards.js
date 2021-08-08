@@ -1,29 +1,6 @@
 const allFlashcards = document.querySelector("#all-flashcards")
 const editFlashcard = document.querySelector("#flashcard")
 
-// function renderFlashcard() {
-//   document.querySelector("#flashcard").innerHTML = `
-//     <div class="edit-flashcard-container">
-//       <form id="edit-flashcard-form" action="/" method="POST">
-//         <fieldset>
-//           <label for="question">Question:</label><br>
-//           <textarea name="question" cols="20" rows="5">question information display here</textarea>
-//         </fieldset>
-//         <fieldset>
-//           <label for="question">Hint:</label><br>
-//           <textarea name="hint" cols="20" rows="5">Hint information display here</textarea>
-//         </fieldset>
-//         <fieldset>
-//           <label for="question">Answer:</label><br>
-//           <textarea name="answer" cols="20" rows="5">Answer information display here</textarea>
-//         </fieldset>
-//         <button>Save</button>
-//         <button class="delete">Delete</button>
-//         </form>
-//     </div>
-//   `
-// }
-
 function renderAllFlashcards() {
   document.querySelector("#all-flashcards").innerHTML = `
     <section class="all-questions-display-container">
