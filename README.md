@@ -1,57 +1,75 @@
-# Quiz Watch
-Summary
+# 📝 Quiz Watch
+Quiz Watch is a CRUD Single Page Application flashcards platform which uses the Model View Controller architectural pattern.
 
-## How to use
+Quiz Watch was designed to improve the rate at which you can learn through spaced repetition which is a powerful technique based on the 'Forgetting Curve' theorized by psychologist Hermann Ebbinghaus in the late 1880's.
+
+## 🖥️ How to use
 - add test login!
 
-## Try it out
+## ⚡ Try it out
 - [Try Quiz Watch here](link)
 
-## Features
-- 
+## ⏰ Features
+- Uses CREATE TRIGGER to auto generate stock flashcards for new users upon signup
+- Intergrates spaced repetition for each flashcard using Moment
+- Uses self executing functions to manage the scope of variables
+- Responsive CSS with iPad and mobile compatability
+- Intuitive platform
 
-## 🛠️ Technology used
+## 🛠️ Technologies used
 - HTML/CSS
-- Node JS
-- Express
+- Node JS/Express
 - Bcrypt
 - PostgreSQL
-- https://fonts.google.com/icons
+- Moment JS
+- Axios
 
 ## 📐 Planning
-- 
+The planning involved in this project included:
+- Photoshop digital mockups of the website
+- Flowcharts of the database and website
+- Extensive testings of the reminder function and Moment prior to implementing
+-  
 
 ## 🐛 Bugs
-- If there are no flashcards due
-- If you submit you have to logout and log back in
+- If there are no flashcards due, it displays an empty flashcard
 
 ## 🌱  Future updates
-- 
+- Add a notification display in the navigation bar to indicate if there are flashcards to do
 
 ## 🎨 Digital Mockups
-?
+![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Mockups.png)
 
 ## ✏️ Flowchart
-?
+![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Flowchart%201.jpg)
+![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Flowchart%202.png)
  
 ***
 
-## Our experience
-I found that creating the visual representations of the database, web flow and RESTful routes helped keep my project organised.
-Having a very clear structure and end goal in mind meant I was never stuck on what to do next.
+## 🚧 Our experience
+### Key learning:
+- We did extensive planning and went through 5 iterations of our database until we were happy
+- Debriefing each other on not only what we worked on, but why it works and how it works
+- Pair programming is awesome
 
-Key learning:
-- Plan everything
-
-Challenges:
-- CSS stylings (not with Sam around)
-- PSQL (except for Kevin)
-- Displaying specific pages with specific paths
+### 📚 Challenges:
+- Creating a PSQL function to auto generate flashcards for new signups
+- Understanding how an asynchronous request works in practice like when and where to retrieve specific data on the front
+- Familiarizing ourselves with how Github works in a collaborative environment and how
+- Figuring out ways to tackle specific parts of the project without compromising each others code
 
 ## 🌟 Show your support
 Give this a star to show your support.
 
-## 📬 Contact me on
-- [LinkedIn](https://www.linkedin.com/in/samantha-gold-90b939a9/)
+## 📬 Contact us
+### Ralph Shipard
+- [LinkedIn](https://www.linkedin.com/in/ralph-shipard-b58924200/)
+- [E-mail](mailto:rshipard@gmail.com)
+
+### Kevin Vu
+- [LinkedIn](https://www.linkedin.com/in/kevin-vu-06/)
+- [E-mail](mailto:kevin.vu06@gmail.com)
+
+### Samantha Gold
+- [LinkedIn](https://www.linkedin.com/in/samantha-gold-dev/)
 - [E-mail](mailto:typesammy@gmail.com)
-- [Instagram](https://www.instagram.com/typesammy_)
