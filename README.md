@@ -4,10 +4,14 @@ Quiz Watch is a CRUD Single Page Application flashcards platform which uses the 
 Quiz Watch was designed to improve the rate at which you can learn through spaced repetition which is a powerful technique based on the 'Forgetting Curve' theorized by psychologist Hermann Ebbinghaus in the late 1880's.
 
 ## 🖥️ How to use
-- add test login!
+- Create an account
+- Go to Flashcards abd there will be 3 auto generated flashcards for you to use
+- You can set whether the flashcards was hard, medium or easy
+- You can add, edit or delete
+- Log back in another day and it will show you what cards are up for you to do based on the difficulty you selected previously
 
 ## ⚡ Try it out
-- [Try Quiz Watch here](link)
+- [Try Quiz Watch here](https://afternoon-sands-32182.herokuapp.com/)
 
 ## ⏰ Features
 - Uses CREATE TRIGGER to auto generate stock flashcards for new users upon signup
@@ -29,13 +33,13 @@ The planning involved in this project included:
 - Photoshop digital mockups of the website
 - Flowcharts of the database and website
 - Extensive testings of the reminder function and Moment prior to implementing
--  
 
 ## 🐛 Bugs
 - If there are no flashcards due, it displays an empty flashcard
 
 ## 🌱  Future updates
 - Add a notification display in the navigation bar to indicate if there are flashcards to do
+- Add a user login with various cards for people to try the app without having to sign up
 
 ## 🎨 Digital Mockups
 ![](https://github.com/TypeSammy/quiz_watch/blob/client/screenshots/Website%20Mockups.png)
