@@ -7,7 +7,7 @@ Quiz Watch was designed to improve the rate at which you can learn through space
 - add test login!
 
 ## ⚡ Try it out
-- [Try Quiz Watch here](link)
+- [Try Quiz Watch here](https://afternoon-sands-32182.herokuapp.com/)
 
 ## ⏰ Features
 - Uses CREATE TRIGGER to auto generate stock flashcards for new users upon signup
