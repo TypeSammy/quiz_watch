@@ -21,7 +21,6 @@ Quiz Watch was designed to improve the rate at which you can learn through space
 - Node JS/Express
 - Bcrypt
 - PostgreSQL
-- Moment JS
 - Axios
 
 ## 📐 Planning
@@ -55,8 +54,10 @@ The planning involved in this project included:
 ### 📚 Challenges:
 - Creating a PSQL function to auto generate flashcards for new signups
 - Understanding how an asynchronous request works in practice like when and where to retrieve specific data on the front
-- Familiarizing ourselves with how Github works in a collaborative environment and how
+- Familiarizing ourselves with how Github works in a collaborative environment and how to resolve conflicts in code
 - Figuring out ways to tackle specific parts of the project without compromising each others code
+- Diagnosing issues with express-sessions going from a dev environment to deployment on heroku with regards to permissions/proxy server
+- Refactoring code
 
 ## 🌟 Show your support
 Give this a star to show your support.
