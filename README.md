@@ -9,7 +9,7 @@ Quiz Watch was designed to improve the rate at which you can learn through space
 - You can set whether the flashcards was hard, medium or easy
 - You can add, edit or delete
 - Log back in another day and it will show you what cards are up for you to do based on the difficulty you selected previously
-- Or alternatively, try it out using username: quiztest, password: Quiztest1
+- Or alternatively, try it out using *username*: quiztest, *password*: Quiztest1
 
 ## ⚡ Try it out
 - [Try Quiz Watch here](https://whispering-peak-73921.herokuapp.com/)
